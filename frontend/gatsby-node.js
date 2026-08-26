@@ -7,6 +7,21 @@
 const path = require('path');
 const _ = require('lodash');
 
+// Keep the schema valid even when content/posts is empty.
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  createTypes(`
+    type MarkdownRemarkFrontmatter implements Node {
+      slug: String
+      tags: [String]
+      draft: Boolean
+      ios: String
+      android: String
+      description: String
+    }
+  `);
+};
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
   const postTemplate = path.resolve(`src/templates/post.js`);
