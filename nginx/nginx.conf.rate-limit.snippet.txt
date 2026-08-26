@@ -1,0 +1,11 @@
+# Add these to the http {} block of /etc/nginx/nginx.conf
+# before the profile site is enabled.
+
+# General per-IP request rate for profile.renstoolbox.com
+limit_req_zone $binary_remote_addr zone=profile_general:10m rate=20r/s;
+
+# Strict per-IP rate for auth endpoints (brute-force protection)
+limit_req_zone $binary_remote_addr zone=profile_auth:10m rate=10r/m;
+
+# Also recommended in nginx.conf:
+#   server_tokens off;
