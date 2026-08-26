@@ -1,31 +1,62 @@
 # Profile
 
-Service for `profile.renstoolbox.com` — Next.js frontend + Express backend behind nginx.
+Service for `profile.renstoolbox.com` — Gatsby static frontend + Express backend behind nginx.
+
+Based on the Brittany Chiang v4 portfolio template (Gatsby 3 / styled-components).
 
 ## Stack
 
-| Component | Port | Dir |
+| Component | Type | Dir |
 |---|---|---|
-| Next.js frontend | 3000 | `frontend/` |
-| Express API | 5000 | `backend/` |
+| Frontend | Gatsby 3 static site (build → `public/`) | `frontend/` |
+| API | Express (port 5000) | `backend/` |
 
-## Local development
+The frontend is served by nginx directly from `frontend/public` (no Node runtime).
+Only the API runs under PM2.
+
+## Prerequisites (this VM is ARM64 — see below)
+
+- Node 16 via nvm (Gatsby 3 does not run on Node 22):
+
+  ```bash
+  nvm install 16 && nvm use 16
+  corepack enable   # or: npm i -g yarn@1.22.22
+  ```
+
+- ARM64 system image tools (Gatsby 3's native binaries are x86-only;
+  these get compiled from source or resolved via env vars):
+
+  ```bash
+  sudo apt-get install -y build-essential pkg-config libvips-dev \
+      pngquant gifsicle potrace libjpeg-turbo-progs
+  ```
+
+## Build (frontend)
 
 ```bash
-# backend
-cd backend && npm install && npm run dev     # http://localhost:5000
+export NVM_DIR=$HOME/.nvm && . $NVM_DIR/nvm.sh && nvm use 16
+export PNGQUANT_BINARY=/usr/bin/pngquant
+export MOZJPEG_BINARY=/usr/bin/cjpeg
+export GIFSICLE_BINARY=/usr/bin/gifsicle
+export POTRACE_BINARY=/usr/bin/potrace
 
-# frontend (another terminal)
-cd frontend && npm install && npm run dev    # http://localhost:3000
+yarn install --ignore-scripts        # skips broken native postinstalls
+
+# manual native builds:
+(cd node_modules/mozjpeg     && node lib/install.js)   # compiles from source on arm64
+(cd node_modules/pngquant-bin && node lib/install.js)
+(cd node_modules/sharp       && node install/libvips && node install/dll-copy && (node ../.bin/prebuild-install || node-gyp rebuild))
+
+npm run build                          # outputs to public/
 ```
 
-## Production build
+Serve: nginx serves `frontend/public` statically (see `nginx/` config).
+
+## Backend
 
 ```bash
 cd backend && npm install && npm run build
-cd ../frontend && npm install && npm run build
-
-pm2 start ecosystem.config.js   # from repo root
+pm2 start ecosystem.config.js
 ```
 
 ## nginx
@@ -41,22 +72,15 @@ Protections included:
 - Rate limiting: 20r/s general, 10r/m on `/api/auth` (brute-force)
 - Method allowlist on `/` (GET/HEAD/OPTIONS only) → 405
 - `client_max_body_size 20M`
-- HMR locked to dev IP (`/_next/webpack-hmr`)
 - HSTS + `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`
-- No-store caching on API, immutable caching on `/_next/static/`
+- No-store caching on API, immutable caching on `/static/`
 
-## Deploy on the server
+### Deploy steps
 
-1. **DNS:** create `A` record `profile.renstoolbox.com` → server public IP, wait for propagation:
-
-   ```bash
-   dig +short profile.renstoolbox.com
-   ```
-
-2. **Rate-limit zones:** add the lines from `nginx/nginx.conf.rate-limit.snippet.txt`
-   to the `http {}` block of `/etc/nginx/nginx.conf` and set `server_tokens off;`.
-
-3. **Install site config:**
+1. **DNS:** `A` record `profile.renstoolbox.com` → server public IP
+2. **Rate-limit zones:** add lines from `nginx/nginx.conf.rate-limit.snippet.txt`
+   to the `http {}` block of `/etc/nginx/nginx.conf` (+ `server_tokens off;`)
+3. **Install config:**
 
    ```bash
    sudo cp nginx/profile.renstoolbox.com.conf /etc/nginx/sites-available/profile.renstoolbox.com
@@ -64,7 +88,7 @@ Protections included:
               /etc/nginx/conf.d/profile.renstoolbox.com.conf
    ```
 
-4. **Certificate (after DNS resolves):**
+4. **Cert:**
 
    ```bash
    sudo certbot certonly --webroot -w /var/www/acme -d profile.renstoolbox.com
@@ -74,8 +98,16 @@ Protections included:
 5. **Verify:**
 
    ```bash
-   curl -I https://profile.renstoolbox.com/                       # 200
+   curl -I https://profile.renstoolbox.com/                    # 200
    curl -o /dev/null -w '%{http_code}\n' https://profile.renstoolbox.com/phpmyadmin   # 000 (444)
    curl -o /dev/null -w '%{http_code}\n' 'https://profile.renstoolbox.com/?x=base64'  # 403
-   curl -s https://profile.renstoolbox.com/api/health             # {"status":"ok",...}
+   curl -s https://profile.renstoolbox.com/api/health          # {"status":"ok",...}
    ```
+
+## Notes
+
+- nginx needs `o+x` on the path to `frontend/public` (home dirs are 750 by default):
+
+  ```bash
+  sudo chmod o+x /home/ubuntu /home/ubuntu/Profile /home/ubuntu/Profile/frontend /home/ubuntu/Profile/frontend/public
+  ```

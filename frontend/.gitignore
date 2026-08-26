@@ -1,5 +1,11 @@
-node_modules/
-.next/
-out/
-*.tsbuildinfo
-next-env.d.ts
+# Project dependencies
+.cache
+node_modules
+yarn-error.log
+package-lock.json
+
+# Build directory
+/public
+.DS_Store
+
+.vscode/
