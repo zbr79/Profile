@@ -42,7 +42,8 @@ npm run build   # outputs to public/, nginx serves it automatically
 
 ### Content state
 
-- Experience section ("Where I've Built") and Projects grid currently show placeholder entries (`content/jobs/`, `content/projects/`) until real content is ready
+- Experience tab section repurposed as **Education** (nav renamed): MS Software Engineering (CSU Fullerton, conferred May 2026, GPA 3.80) + BS Computer Science (CSU Fullerton, Summer 2023) — real coursework bullets filled
+- Projects grid shows placeholder entries (`content/projects/`) until real content is ready
 - Placeholders to fill: hero, About paragraphs, `src/config.js` (email/socials), footer credit, `gatsby-config.js` SEO/manifest, photo (`me.jpg`), resume PDF (later)
 - Deleted from template: her jobs, featured section, 34 projects, blog posts (blog kept empty), resume.pdf, slides, photos/favicons, GA, logo letter
 - `gatsby-node.js` has `createSchemaCustomization` so the build works with an empty blog
@@ -83,12 +84,14 @@ Job-readiness plan — 4 pieces, built in order. Total target: ~5 weeks.
 
 ### 1. Profile site — in progress (~1 day left)
 
-- [ ] Replace `[Placeholder]` hero: name, pitch, intro paragraph
-- [ ] Write About section story (3 paragraphs)
-- [ ] Real email + social links in `frontend/src/config.js`
+- [x] Replace `[Placeholder]` hero: name, pitch, intro paragraph (Andy Ren)
+- [x] Write About section story (3 paragraphs)
+- [x] Social links in `frontend/src/config.js` (GitHub only; others removed)
+- [x] Real email in `frontend/src/config.js` (zhibinren79@gmail.com)
 - [x] Remove previous project entries from Experience + Projects sections (replaced with placeholders)
-- [ ] Footer credit name
-- [ ] SEO title/description in `gatsby-config.js`
+- [x] Education section: repurposed Jobs section, CSU Fullerton MS + BS entries with real coursework bullets
+- [x] Footer credit name
+- [x] SEO title/description in `gatsby-config.js`
 - [ ] Your photo (replace generated `me.jpg`)
 - [ ] Resume PDF (re-add resume button later)
 

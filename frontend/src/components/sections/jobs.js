@@ -176,6 +176,7 @@ const Jobs = () => {
             frontmatter {
               title
               company
+              tabLabel
               location
               range
               url
@@ -244,13 +245,13 @@ const Jobs = () => {
 
   return (
     <StyledJobsSection id="jobs" ref={revealContainer}>
-      <h2 className="numbered-heading">Where I’ve Built</h2>
+      <h2 className="numbered-heading">Education</h2>
 
       <div className="inner">
-        <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>
+        <StyledTabList role="tablist" aria-label="Education tabs" onKeyDown={e => onKeyDown(e)}>
           {jobsData &&
             jobsData.map(({ node }, i) => {
-              const { company } = node.frontmatter;
+              const { tabLabel } = node.frontmatter;
               return (
                 <StyledTabButton
                   key={i}
@@ -262,7 +263,7 @@ const Jobs = () => {
                   tabIndex={activeTabId === i ? '0' : '-1'}
                   aria-selected={activeTabId === i ? true : false}
                   aria-controls={`panel-${i}`}>
-                  <span>{company}</span>
+                  <span>{tabLabel}</span>
                 </StyledTabButton>
               );
             })}

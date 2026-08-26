@@ -60,13 +60,16 @@ const Hero = () => {
   }, []);
 
   const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Your Name.</h2>;
-  const three = <h3 className="big-heading">[Short pitch — what you build.]</h3>;
+  const two = <h2 className="big-heading">Andy Ren.</h2>;
+  const three = <h3 className="big-heading">I build full-stack web apps with clean engineering and thoughtful design.</h3>;
   const four = (
     <>
       <p>
-        [Placeholder: 2–3 sentences about what you do, what you're focused on, and what you're
-        looking for. Replace this with your own intro.]
+        I'm a software engineer based in Fullerton, CA, with an M.S. in Software Engineering
+        (2026) and a B.S. in Computer Science (2023) from Cal State Fullerton. I build end-to-end
+        web applications with Next.js, React, Node.js, and MongoDB — from a production recipe
+        platform to real-time browser games. I'm currently focused on creating polished,
+        user-facing products and looking for full-stack or frontend engineering roles.
       </p>
     </>
   );

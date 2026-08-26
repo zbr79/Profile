@@ -2,11 +2,12 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: '[Your Name]',
-    description: '[Placeholder description — replace with your own site description.]',
+    title: 'Andy Ren',
+    description:
+      'Andy Ren is a software engineer based in Fullerton, CA, building full-stack web applications with Next.js, React, Node.js, and MongoDB.',
     siteUrl: 'https://profile.renstoolbox.com', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@YOUR_USERNAME',
+    twitterUsername: '',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -19,8 +20,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: '[Your Name]',
-        short_name: '[Your Name]',
+        name: 'Andy Ren',
+        short_name: 'Andy Ren',
         start_url: '/',
         background_color: config.colors.darkNavy,
         theme_color: config.colors.navy,

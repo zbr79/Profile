@@ -1,26 +1,10 @@
 module.exports = {
-  email: 'you@example.com',
+  email: 'zhibinren79@gmail.com',
 
   socialMedia: [
     {
       name: 'GitHub',
       url: 'https://github.com/853493541',
-    },
-    {
-      name: 'Instagram',
-      url: 'https://www.instagram.com/YOUR_USERNAME',
-    },
-    {
-      name: 'Twitter',
-      url: 'https://twitter.com/YOUR_USERNAME',
-    },
-    {
-      name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/YOUR_USERNAME',
-    },
-    {
-      name: 'Codepen',
-      url: 'https://codepen.io/YOUR_USERNAME',
     },
   ],
 
@@ -30,7 +14,7 @@ module.exports = {
       url: '/#about',
     },
     {
-      name: 'Experience',
+      name: 'Education',
       url: '/#jobs',
     },
     {
