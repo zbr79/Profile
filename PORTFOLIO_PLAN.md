@@ -42,7 +42,7 @@ npm run build   # outputs to public/, nginx serves it automatically
 
 ### Content state
 
-- Experience section ("Where I've Built") and Projects grid currently show Baizhan Tool + Zhenchuan entries (`content/jobs/`, `content/projects/`) — **pending removal per locked decisions below**
+- Experience section ("Where I've Built") and Projects grid currently show placeholder entries (`content/jobs/`, `content/projects/`) until real content is ready
 - Placeholders to fill: hero, About paragraphs, `src/config.js` (email/socials), footer credit, `gatsby-config.js` SEO/manifest, photo (`me.jpg`), resume PDF (later)
 - Deleted from template: her jobs, featured section, 34 projects, blog posts (blog kept empty), resume.pdf, slides, photos/favicons, GA, logo letter
 - `gatsby-node.js` has `createSchemaCustomization` so the build works with an empty blog
@@ -50,17 +50,7 @@ npm run build   # outputs to public/, nginx serves it automatically
 
 ---
 
-## The three projects (user's real work)
-
-### Baizhan Tool — `/home/ubuntu/baizhan-v2` (github.com/853493541/baizhan-v2)
-
-Production game-management platform (renstoolbox.com): character management, boss-drop scheduling, card-game engine, Python OCR pipeline, MongoDB, nginx hardening. 627 commits. Served from **Oracle VM (147.224.13.78), NOT this VM**.
-**Decision: NOT featured on the portfolio** (game-related, Chinese UI). Keep repo public as backup evidence; list as one-line resume entry.
-
-### Zhenchuan — github.com/853493541/zhenchuan (cloned at `/home/ubuntu/opencode-tmp/zhenchuan`)
-
-Browser multiplayer battle game: Next.js 15 + Three.js + WebSocket + Express + MongoDB, battle-royale mode, 1,468 commits.
-**Decision: NOT featured on the portfolio** (game-related). Same treatment as Baizhan.
+## Flagship project (user's real work)
 
 ### Rencipe — github.com/zbr79/Rencipe (cloned at `/home/ubuntu/opencode-tmp/Rencipe`)
 
@@ -75,8 +65,7 @@ Gaps to fix (the upgrade project): UI redesign (main complaint), no auth (jwt un
 
 - Public IP: 170.9.60.63 (private 10.0.0.253), ARM64, Ubuntu
 - GitHub auth on VM: account **AndyR79S** (token via GIT_ASKPASS); has collaborator access to zbr79/Profile
-- DNS: `profile.renstoolbox.com` → 170.9.60.63 (Namecheap); `baizhan.renstoolbox.com` → 147.224.13.78 (Oracle VM, serves the real baizhan site)
-- This VM's nginx also has baizhan config but it's effectively unused
+- DNS: `profile.renstoolbox.com` → 170.9.60.63 (Namecheap)
 - nginx protections verified: 444 exploit-path blocks, 403 query-string filter, rate limits (20r/s general, 10r/m on `/api/auth`), HSTS + security headers, method allowlist, `client_max_body_size 20M`, `/static/` immutable cache
 - NOTE: location-level `add_header` overrides server-level ones — repeat headers per-location
 - Node versions: system v22; nvm has v16.20.2 (Gatsby builds)
@@ -84,7 +73,7 @@ Gaps to fix (the upgrade project): UI redesign (main complaint), no auth (jwt un
 
 ### Bug found & fixed (worth remembering)
 
-nginx `return 301` at **server level** executes during the rewrite phase BEFORE location matching → `/.well-known/acme-challenge/` could never be served, breaking cert issuance. Fixed in both profile and baizhan configs by moving redirects into `location /`. Not DNS cache (initial wrong theory).
+nginx `return 301` at **server level** executes during the rewrite phase BEFORE location matching → `/.well-known/acme-challenge/` could never be served, breaking cert issuance. Fixed by moving redirects into `location /`. Not DNS cache (initial wrong theory).
 
 ---
 
@@ -97,7 +86,7 @@ Job-readiness plan — 4 pieces, built in order. Total target: ~5 weeks.
 - [ ] Replace `[Placeholder]` hero: name, pitch, intro paragraph
 - [ ] Write About section story (3 paragraphs)
 - [ ] Real email + social links in `frontend/src/config.js`
-- [ ] Remove Baizhan Tool / Zhenchuan from Experience + Projects sections (locked decision)
+- [x] Remove previous project entries from Experience + Projects sections (replaced with placeholders)
 - [ ] Footer credit name
 - [ ] SEO title/description in `gatsby-config.js`
 - [ ] Your photo (replace generated `me.jpg`)
@@ -130,7 +119,7 @@ Candidates:
 
 ### Supporting layer (as needed, not projects)
 
-- [ ] Baizhan/Zhenchuan: English one-line resume entries (repos stay public as backup evidence)
+- [ ] English one-line resume entries for prior personal projects (public repos as backup evidence)
 - [ ] Resume PDF
 - [ ] LinkedIn + GitHub profile polish
 - [ ] Blog posts — OPTIONAL, only if time (do not prioritize)
@@ -141,7 +130,7 @@ Site first (closest to done) → frontend project (design skill needed BEFORE re
 
 ### Decisions locked
 
-- Baizhan/Zhenchuan: off the site, keep as resume evidence
+- Prior game-related projects: off the site, keep as resume evidence
 - 2 flagship projects + profile site = enough (3 is ideal, no more scope)
 - OCR topic dropped — do not raise again
 - AI project must be standalone
