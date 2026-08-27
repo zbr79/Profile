@@ -11,6 +11,10 @@ const StyledProjectsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 120px 0;
+  background-color: var(--bg-alt);
+  box-shadow: 0 0 0 100vmax var(--bg-alt);
+  clip-path: inset(0 -100vmax);
 
   h2 {
     font-size: clamp(24px, 5vw, var(--fz-heading));

@@ -90,3 +90,12 @@ Companion file: `PORTFOLIO_PLAN.md` (read-first handoff + roadmap).
 
 ### Disproved
 - Guessing at CSS misalignment in nav styles — the actual cause was hydration, not styling.
+
+---
+
+## 2026-08-26 — Smooth-flow section rhythm (devonstank.com inspiration)
+
+### Solved
+- User liked devonstank.com's seamless top-to-bottom feel ("no page switching"). Implemented alternating full-bleed bands — About (#f5f5f7) and Projects (#f5f5f7) via the `box-shadow: 0 0 0 100vmax` + `clip-path: inset(0 -100vmax)` full-bleed trick, keeping the 1000px content column.
+- Softened ScrollReveal: duration 700ms, 24px rise, ease-out bezier.
+- Verified with headless probe: hero white → about gray → education white → projects gray → contact white.

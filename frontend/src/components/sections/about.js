@@ -7,6 +7,10 @@ import { usePrefersReducedMotion } from '@hooks';
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
+  padding: 120px 0;
+  background-color: var(--bg-alt);
+  box-shadow: 0 0 0 100vmax var(--bg-alt);
+  clip-path: inset(0 -100vmax);
 
   .inner {
     display: grid;

@@ -15,7 +15,7 @@ module.exports = {
     },
     {
       name: 'Education',
-      url: '/#jobs',
+      url: '/#education',
     },
     {
       name: 'Work',
@@ -35,13 +35,13 @@ module.exports = {
 
   srConfig: (delay = 200, viewFactor = 0.25) => ({
     origin: 'bottom',
-    distance: '20px',
-    duration: 500,
+    distance: '24px',
+    duration: 700,
     delay,
     rotate: { x: 0, y: 0, z: 0 },
     opacity: 0,
     scale: 1,
-    easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
+    easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
     mobile: true,
     reset: false,
     useDelay: 'always',
