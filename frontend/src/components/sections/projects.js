@@ -63,7 +63,6 @@ const StyledProject = styled.li`
   }
 
   .project-inner {
-    ${({ theme }) => theme.mixins.boxShadow};
     ${({ theme }) => theme.mixins.flexBetween};
     flex-direction: column;
     align-items: flex-start;
@@ -71,9 +70,14 @@ const StyledProject = styled.li`
     height: 100%;
     padding: 2rem 1.75rem;
     border-radius: var(--border-radius);
-    background-color: var(--light-navy);
+    background-color: var(--bg-bright);
+    border: 1px solid var(--border);
     transition: var(--transition);
     overflow: auto;
+
+    &:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
   }
 
   .project-top {
@@ -81,10 +85,10 @@ const StyledProject = styled.li`
     margin-bottom: 35px;
 
     .folder {
-      color: var(--green);
+      color: var(--text-muted);
       svg {
-        width: 40px;
-        height: 40px;
+        width: 32px;
+        height: 32px;
       }
     }
 
@@ -92,7 +96,7 @@ const StyledProject = styled.li`
       display: flex;
       align-items: center;
       margin-right: -10px;
-      color: var(--light-slate);
+      color: var(--text-muted);
 
       a {
         ${({ theme }) => theme.mixins.flexCenter};
@@ -116,8 +120,10 @@ const StyledProject = styled.li`
 
   .project-title {
     margin: 0 0 10px;
-    color: var(--lightest-slate);
+    color: var(--text-primary);
     font-size: var(--fz-xxl);
+    font-weight: 600;
+    letter-spacing: -0.01em;
 
     a {
       position: static;
@@ -136,7 +142,7 @@ const StyledProject = styled.li`
   }
 
   .project-description {
-    color: var(--light-slate);
+    color: var(--text-muted);
     font-size: 17px;
 
     a {

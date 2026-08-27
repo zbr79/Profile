@@ -73,11 +73,12 @@ const StyledTabButton = styled.button`
   width: 100%;
   height: var(--tab-height);
   padding: 0 20px 2px;
-  border-left: 2px solid var(--lightest-navy);
+  border-left: 1px solid var(--border);
   background-color: transparent;
-  color: ${({ isActive }) => (isActive ? 'var(--green)' : 'var(--slate)')};
-  font-family: var(--font-mono);
-  font-size: var(--fz-xs);
+  color: ${({ isActive }) => (isActive ? 'var(--accent)' : 'var(--text-secondary)')};
+  font-family: var(--font-sans);
+  font-weight: ${({ isActive }) => (isActive ? 600 : 400)};
+  font-size: var(--fz-sm);
   text-align: left;
   white-space: nowrap;
 
@@ -89,13 +90,13 @@ const StyledTabButton = styled.button`
     min-width: 120px;
     padding: 0 15px;
     border-left: 0;
-    border-bottom: 2px solid var(--lightest-navy);
+    border-bottom: 2px solid var(--border);
     text-align: center;
   }
 
   &:hover,
   &:focus {
-    background-color: var(--light-navy);
+    background-color: var(--bg-alt);
   }
 `;
 
@@ -107,7 +108,7 @@ const StyledHighlight = styled.div`
   width: 2px;
   height: var(--tab-height);
   border-radius: var(--border-radius);
-  background: var(--green);
+  background: var(--accent);
   transform: translateY(calc(${({ activeTabId }) => activeTabId} * var(--tab-height)));
   transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-delay: 0.1s;
@@ -148,17 +149,18 @@ const StyledTabPanel = styled.div`
   h3 {
     margin-bottom: 2px;
     font-size: var(--fz-xxl);
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     line-height: 1.3;
 
     .company {
-      color: var(--green);
+      color: var(--accent);
     }
   }
 
   .range {
     margin-bottom: 25px;
-    color: var(--light-slate);
+    color: var(--text-muted);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
   }

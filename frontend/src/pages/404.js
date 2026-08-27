@@ -1,19 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { navDelay } from '@utils';
 import { Layout } from '@components';
-import { usePrefersReducedMotion } from '@hooks';
 
 const StyledMainContainer = styled.main`
   ${({ theme }) => theme.mixins.flexCenter};
   flex-direction: column;
 `;
 const StyledTitle = styled.h1`
-  color: var(--green);
+  color: var(--accent);
   font-family: var(--font-mono);
   font-size: clamp(100px, 25vw, 200px);
   line-height: 1;
@@ -27,45 +24,21 @@ const StyledHomeButton = styled(Link)`
   margin-top: 40px;
 `;
 
-const NotFoundPage = ({ location }) => {
-  const [isMounted, setIsMounted] = useState(false);
-  const prefersReducedMotion = usePrefersReducedMotion();
+const NotFoundPage = ({ location }) => (
+  <Layout location={location}>
+    <Helmet title="Page Not Found" />
 
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-
-    const timeout = setTimeout(() => setIsMounted(true), navDelay);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  const content = (
     <StyledMainContainer className="fillHeight">
-      <StyledTitle>404</StyledTitle>
-      <StyledSubtitle>Page Not Found</StyledSubtitle>
-      <StyledHomeButton to="/">Go Home</StyledHomeButton>
+      <StyledTitle className="anim-fadeup">404</StyledTitle>
+      <StyledSubtitle className="anim-fadeup" style={{ animationDelay: '100ms' }}>
+        Page Not Found
+      </StyledSubtitle>
+      <StyledHomeButton className="anim-fadeup" style={{ animationDelay: '200ms' }} to="/">
+        Go Home
+      </StyledHomeButton>
     </StyledMainContainer>
-  );
-
-  return (
-    <Layout location={location}>
-      <Helmet title="Page Not Found" />
-
-      {prefersReducedMotion ? (
-        <>{content}</>
-      ) : (
-        <TransitionGroup component={null}>
-          {isMounted && (
-            <CSSTransition timeout={500} classNames="fadeup">
-              {content}
-            </CSSTransition>
-          )}
-        </TransitionGroup>
-      )}
-    </Layout>
-  );
-};
+  </Layout>
+);
 
 NotFoundPage.propTypes = {
   location: PropTypes.object.isRequired,

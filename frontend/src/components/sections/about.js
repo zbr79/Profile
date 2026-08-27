@@ -39,7 +39,7 @@ const StyledText = styled.div`
         content: '▹';
         position: absolute;
         left: 0;
-        color: var(--green);
+        color: var(--accent);
         font-size: var(--fz-sm);
         line-height: 12px;
       }
@@ -61,54 +61,21 @@ const StyledPic = styled.div`
     position: relative;
     width: 100%;
     border-radius: var(--border-radius);
-    background-color: var(--green);
+    background-color: var(--bg-bright);
+    border: 1px solid var(--border);
+    overflow: hidden;
 
     &:hover,
     &:focus {
       outline: 0;
-      transform: translate(-4px, -4px);
-
-      &:after {
-        transform: translate(8px, 8px);
-      }
-
-      .img {
-        filter: none;
-        mix-blend-mode: normal;
-      }
+      transform: translateY(-4px);
     }
 
     .img {
       position: relative;
       border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1);
+      filter: none;
       transition: var(--transition);
-    }
-
-    &:before,
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: var(--border-radius);
-      transition: var(--transition);
-    }
-
-    &:before {
-      top: 0;
-      left: 0;
-      background-color: var(--navy);
-      mix-blend-mode: screen;
-    }
-
-    &:after {
-      border: 2px solid var(--green);
-      top: 14px;
-      left: 14px;
-      z-index: -1;
     }
   }
 `;

@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import React from 'react';
 import styled from 'styled-components';
-import { navDelay, loaderDelay } from '@utils';
-import { usePrefersReducedMotion } from '@hooks';
+import { email } from '@config';
 
 const StyledHeroSection = styled.section`
   ${({ theme }) => theme.mixins.flexCenter};
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   min-height: 100vh;
   height: 100vh;
   padding: 0;
@@ -18,91 +17,92 @@ const StyledHeroSection = styled.section`
   }
 
   h1 {
-    margin: 0 0 30px 4px;
-    color: var(--green);
+    margin: 0 0 24px 0;
+    color: var(--text-muted);
     font-family: var(--font-mono);
-    font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
+    font-size: var(--fz-md);
     font-weight: 400;
-
-    @media (max-width: 480px) {
-      margin: 0 0 20px 2px;
-    }
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
   }
 
   h3 {
-    margin-top: 5px;
-    color: var(--slate);
-    line-height: 0.9;
+    margin-top: 12px;
+    color: var(--text-muted);
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: -0.01em;
   }
 
   p {
-    margin: 20px 0 0;
-    max-width: 540px;
+    margin: 24px 0 0;
+    max-width: 640px;
+    color: var(--text-secondary);
   }
 
-  .email-link {
-    ${({ theme }) => theme.mixins.bigButton};
-    margin-top: 50px;
+  .cta-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .email-link {
+      ${({ theme }) => theme.mixins.bigButton};
+    }
+
+    .github-link {
+      ${({ theme }) => theme.mixins.bigButton};
+      color: var(--text-primary);
+      background-color: transparent;
+      border-color: var(--border);
+
+      &:hover,
+      &:focus-visible {
+        background-color: var(--bg-alt);
+        border-color: var(--text-faint);
+      }
+    }
   }
 `;
 
 const Hero = () => {
-  const [isMounted, setIsMounted] = useState(false);
-  const prefersReducedMotion = usePrefersReducedMotion();
-
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-
-    const timeout = setTimeout(() => setIsMounted(true), navDelay);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Andy Ren.</h2>;
-  const three = <h3 className="big-heading">I build full-stack web apps with clean engineering and thoughtful design.</h3>;
-  const four = (
-    <>
-      <p>
-        I'm a software engineer based in Fullerton, CA, with an M.S. in Software Engineering
-        (2026) and a B.S. in Computer Science (2023) from Cal State Fullerton. I build end-to-end
-        web applications with Next.js, React, Node.js, and MongoDB — from a production recipe
-        platform to real-time browser games. I'm currently focused on creating polished,
-        user-facing products and looking for full-stack or frontend engineering roles.
-      </p>
-    </>
-  );
-  const five = (
-    <a
-      className="email-link"
-      href="https://github.com/853493541"
-      target="_blank"
-      rel="noreferrer">
-      Check out my GitHub
-    </a>
-  );
-
-  const items = [one, two, three, four, five];
+  const items = [
+    <h1 key="one">Software Engineer</h1>,
+    <h2 key="two" className="big-heading">
+      Andy Ren.
+    </h2>,
+    <h3 key="three" className="medium-heading">
+      Full-stack developer focused on clean, useful products.
+    </h3>,
+    <p key="four">
+      I'm a software engineer based in Fullerton, CA, with an M.S. in Software Engineering (2026)
+      and a B.S. in Computer Science (2023) from Cal State Fullerton. I build end-to-end web
+      applications with Next.js, React, Node.js, and MongoDB — from a production recipe platform
+      to real-time browser games. I'm currently looking for full-stack or frontend engineering
+      roles.
+    </p>,
+    <div key="five" className="cta-row">
+      <a className="email-link" href={`mailto:${email}`}>
+        Say Hello
+      </a>
+      <a
+        className="github-link"
+        href="https://github.com/853493541"
+        target="_blank"
+        rel="noreferrer">
+        View GitHub
+      </a>
+    </div>,
+  ];
 
   return (
     <StyledHeroSection>
-      {prefersReducedMotion ? (
-        <>
-          {items.map((item, i) => (
-            <div key={i}>{item}</div>
-          ))}
-        </>
-      ) : (
-        <TransitionGroup component={null}>
-          {isMounted &&
-            items.map((item, i) => (
-              <CSSTransition key={i} classNames="fadeup" timeout={loaderDelay}>
-                <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
-              </CSSTransition>
-            ))}
-        </TransitionGroup>
-      )}
+      {items.map((item, i) => (
+        <div key={i} className="anim-fadeup" style={{ animationDelay: `${(i + 1) * 100}ms` }}>
+          {item}
+        </div>
+      ))}
     </StyledHeroSection>
   );
 };

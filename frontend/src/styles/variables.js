@@ -2,24 +2,23 @@ import { css } from 'styled-components';
 
 const variables = css`
   :root {
-    --dark-navy: #020c1b;
-    --navy: #0a192f;
-    --light-navy: #112240;
-    --lightest-navy: #233554;
-    --navy-shadow: rgba(2, 12, 27, 0.7);
-    --dark-slate: #495670;
-    --slate: #8892b0;
-    --light-slate: #a8b2d1;
-    --lightest-slate: #ccd6f6;
-    --white: #e6f1ff;
-    --green: #64ffda;
-    --green-tint: rgba(100, 255, 218, 0.1);
-    --pink: #f57dff;
-    --blue: #57cbff;
+    --bg: #ffffff;
+    --bg-alt: #f5f5f7;
+    --bg-bright: #ffffff;
+    --bg-invert: #1d1d1f;
+    --surface: #f5f5f7;
+    --border: #d2d2d7;
+    --shadow: rgba(0, 0, 0, 0.08);
+    --text-primary: #1d1d1f;
+    --text-secondary: #424245;
+    --text-muted: #86868b;
+    --text-faint: #aeaeb2;
+    --accent: #1d1d1f;
+    --accent-tint: rgba(0, 0, 0, 0.05);
 
-    --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui,
-      sans-serif;
-    --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto,
+      'Helvetica Neue', Arial, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace;
 
     --fz-xxs: 12px;
     --fz-xs: 13px;
@@ -30,9 +29,9 @@ const variables = css`
     --fz-xxl: 22px;
     --fz-heading: 32px;
 
-    --border-radius: 4px;
-    --nav-height: 100px;
-    --nav-scroll-height: 70px;
+    --border-radius: 10px;
+    --nav-height: 60px;
+    --nav-scroll-height: 48px;
 
     --tab-height: 42px;
     --tab-width: 120px;

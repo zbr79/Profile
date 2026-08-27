@@ -44,7 +44,8 @@ npm run build   # outputs to public/, nginx serves it automatically
 
 - Experience tab section repurposed as **Education** (nav renamed): MS Software Engineering (CSU Fullerton, conferred May 2026, GPA 3.80) + BS Computer Science (CSU Fullerton, Summer 2023) — real coursework bullets filled
 - Projects grid shows placeholder entries (`content/projects/`) until real content is ready
-- Placeholders to fill: hero, About paragraphs, `src/config.js` (email/socials), footer credit, `gatsby-config.js` SEO/manifest, photo (`me.jpg`), resume PDF (later)
+- Design: Apple-style black & white light theme (reskin complete — white/#f5f5f7, system fonts, pill buttons, no side rails, no numbered headings). Accent color decision deferred
+- Placeholders to fill: photo (`me.jpg`), resume PDF (later), projects grid content (Rencipe + AI project)
 - Deleted from template: her jobs, featured section, 34 projects, blog posts (blog kept empty), resume.pdf, slides, photos/favicons, GA, logo letter
 - `gatsby-node.js` has `createSchemaCustomization` so the build works with an empty blog
 - Placeholder images generated with sharp (me.jpg, logo.png, og.png)
