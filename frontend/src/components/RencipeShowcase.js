@@ -3,46 +3,38 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { useInView } from '@hooks';
 import productScreenshot from '@images/rencipe-homepage-simplified.png';
+import recipeDetailScreenshot from '@images/rencipe-recipe-detail-focused.png';
 import { StyledRencipePage } from './rencipeShowcaseStyles';
 
-const capabilities = [
+const guestSurfaces = [
   {
-    index: '01 / DISCOVER',
-    title: 'Find something worth cooking',
+    index: '01 / HOME',
+    route: '/',
+    title: 'Start with something worth cooking',
     body:
-      'Browse recipes by category, search by dish, or use the featured carousel to find a next meal without starting from a blank page.',
+      'Featured recipes, public tabs, and a focused kitchen converter give guests a clear first step.',
   },
   {
-    index: '02 / ORGANIZE',
-    title: 'Turn recipes into a plan',
+    index: '02 / BROWSE',
+    route: '/browse',
+    title: 'Find a public recipe',
     body:
-      'Save favorites, build meal plans, keep drafts, and move from inspiration to an organized kitchen workflow.',
+      'Guests can browse public recipes, filter by category, and switch between popular and recent results.',
   },
   {
-    index: '03 / MAKE',
-    title: 'Cook with better context',
+    index: '03 / RECIPE DETAIL',
+    route: '/recipes/:id',
+    title: 'Open the recipe and cook',
     body:
-      'Recipe details bring together ingredients, steps, ratings, comments, and practical unit conversion in one focused surface.',
+      'A public recipe page puts the ingredients, steps, tips, and useful cooking context in one place.',
   },
-];
-
-const proofPoints = [
-  [
-    'Bilingual discovery',
-    'English and Chinese recipe content designed for a broader home-cooking audience.',
-  ],
-  [
-    'Guest-friendly entry',
-    'Visitors can browse the public experience before choosing to sign in or claim an account.',
-  ],
-  [
-    'Image focus controls',
-    'Admin tooling supports separate crops for cards, slideshow imagery, and detail pages.',
-  ],
-  [
-    'Tested product surface',
-    'Responsive browser coverage includes search, recipes, meals, auth, accessibility, and visual regression.',
-  ],
+  {
+    index: '04 / PUBLIC INFO',
+    route: '/about · /legal · /contact',
+    title: 'Get the public context',
+    body:
+      'About, Legal, and Contact pages complete the guest-facing product surface around the recipe experience.',
+  },
 ];
 
 const Reveal = ({ children, className = '', delay = 0 }) => {
@@ -72,23 +64,23 @@ const RencipeShowcase = ({ external, github }) => {
       <section className="showcase-hero">
         <div className="showcase-nav">
           <Link to="/archive">← Project archive</Link>
-          <span>Rencipe / 01</span>
+          <span>Rencipe / guest view</span>
         </div>
 
         <div className="hero-grid">
           <Reveal className="hero-copy">
-            <span className="eyebrow">Full-stack recipe platform</span>
+            <span className="eyebrow">Guest-facing recipe platform</span>
             <h1>
               Recipes for <em>real life.</em>
             </h1>
             <p>
-              Rencipe turns the messy path from “what should I cook?” to a workable meal into a
-              calm, bilingual product experience.
+              Rencipe gives visitors a simple path from public discovery to a recipe they can read
+              and cook.
             </p>
 
             <div className="button-row">
               <a className="primary" href={liveUrl} target="_blank" rel="noreferrer">
-                Open live demo <span aria-hidden="true">↗</span>
+                Open guest demo <span aria-hidden="true">↗</span>
               </a>
               <a href={github} target="_blank" rel="noreferrer">
                 View source <span aria-hidden="true">↗</span>
@@ -97,12 +89,12 @@ const RencipeShowcase = ({ external, github }) => {
 
             <div className="hero-facts">
               <div>
-                <strong>EN · 中文</strong>
-                bilingual by design
+                <strong>Public routes</strong>
+                built for first-time visitors
               </div>
               <div>
-                <strong>Next.js + Express</strong>
-                end-to-end product
+                <strong>No account required</strong>
+                discover and read recipes
               </div>
             </div>
           </Reveal>
@@ -117,51 +109,58 @@ const RencipeShowcase = ({ external, github }) => {
               <img
                 className="browser-image"
                 src={productScreenshot}
-                alt="Simplified Rencipe homepage with its real navigation, recipe text, and kitchen converter"
+                alt="Simplified Rencipe guest homepage with real recipe text and a focused kitchen converter"
               />
             </div>
-            <div className="floating-note">browse · save · cook</div>
+            <div className="floating-note">discover · browse · cook</div>
           </Reveal>
         </div>
       </section>
 
-      <div className="signal-row" aria-label="Rencipe technology highlights">
-        <div>
-          <strong>Next.js 16</strong>
-          <span>frontend</span>
-        </div>
-        <div>
-          <strong>Express 5</strong>
-          <span>API layer</span>
-        </div>
-        <div>
-          <strong>MongoDB</strong>
-          <span>data model</span>
-        </div>
-        <div>
-          <strong>Cloudinary</strong>
-          <span>media pipeline</span>
-        </div>
-      </div>
+      <section className="detail-preview">
+        <div className="detail-preview-inner">
+          <Reveal className="detail-preview-visual">
+            <div className="browser-frame">
+              <img
+                className="browser-image"
+                src={recipeDetailScreenshot}
+                alt="Focused Rencipe Char Siu recipe detail preview with real ingredients, steps, and recipe metadata"
+              />
+            </div>
+          </Reveal>
 
-      <section className="showcase-section">
+          <Reveal className="detail-preview-copy" delay={160}>
+            <span className="section-kicker">02 / Recipe detail</span>
+            <h2>Open the recipe and cook.</h2>
+            <p>
+              The detail surface keeps the title, ingredients, steps, metadata, and cooking context
+              together so a guest can move from curiosity to action.
+            </p>
+            <a className="text-link" href={liveUrl} target="_blank" rel="noreferrer">
+              View the live recipe <span aria-hidden="true">↗</span>
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="guest-surfaces">
         <Reveal className="section-intro">
           <div>
-            <span className="section-kicker">The product</span>
-            <h2>More than a recipe list.</h2>
+            <span className="section-kicker">The guest view</span>
+            <h2>Four public surfaces are enough.</h2>
           </div>
           <p>
-            Rencipe is shaped like a real product: it has public discovery, personal organization,
-            authenticated workflows, and the small tools that make cooking easier once the recipe is
-            open.
+            The presentation follows the routes an interviewer can open without an account, from
+            discovery through a recipe and the public information pages.
           </p>
         </Reveal>
 
-        <div className="capabilities-grid">
-          {capabilities.map(({ index, title, body }, indexPosition) => (
-            <Reveal key={index} delay={indexPosition * 100}>
-              <article className="capability-card">
+        <div className="guest-grid">
+          {guestSurfaces.map(({ index, route, title, body }, indexPosition) => (
+            <Reveal key={index} delay={indexPosition * 90}>
+              <article className="guest-card">
                 <span className="card-index">{index}</span>
+                <span className="card-route">{route}</span>
                 <h3>{title}</h3>
                 <p>{body}</p>
               </article>
@@ -170,94 +169,11 @@ const RencipeShowcase = ({ external, github }) => {
         </div>
       </section>
 
-      <section className="workflow-band">
-        <Reveal>
-          <span className="section-kicker">The core loop</span>
-          <h2>From craving to plan, without losing the thread.</h2>
-        </Reveal>
-
-        <div className="workflow">
-          <Reveal className="workflow-step" delay={100}>
-            <span className="step-number">01</span>
-            <h3>Explore</h3>
-            <p>Search, browse categories, and use the featured surface to find the right idea.</p>
-          </Reveal>
-          <Reveal className="workflow-step" delay={200}>
-            <span className="step-number">02</span>
-            <h3>Save</h3>
-            <p>
-              Keep favorites, comments, ratings, and drafts close to the account that owns them.
-            </p>
-          </Reveal>
-          <Reveal className="workflow-step" delay={300}>
-            <span className="step-number">03</span>
-            <h3>Plan</h3>
-            <p>Combine recipes into meal plans and use the kitchen tools while you cook.</p>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="architecture-section">
-        <Reveal className="architecture-copy">
-          <span className="section-kicker">Under the surface</span>
-          <h2>A product stack built for iteration.</h2>
-          <p>
-            The interface is only one layer. Rencipe connects a Next.js experience to an Express
-            API, MongoDB persistence, and Cloudinary media handling so the product can grow beyond
-            static recipe cards.
-          </p>
-        </Reveal>
-
-        <Reveal className="architecture-diagram" delay={160}>
-          <div className="architecture-node">
-            <strong>Browser</strong>
-            <span>responsive UI</span>
-          </div>
-          <div className="architecture-node">
-            <strong>Next.js</strong>
-            <span>app routes + UI</span>
-          </div>
-          <div className="architecture-node">
-            <strong>Express</strong>
-            <span>API + auth</span>
-          </div>
-          <div className="architecture-node">
-            <strong>Data + media</strong>
-            <span>MongoDB + Cloudinary</span>
-          </div>
-        </Reveal>
-      </section>
-
-      <section className="proof-section">
-        <Reveal className="proof-copy">
-          <span className="section-kicker">What I built</span>
-          <h2>Small details make the demo credible.</h2>
-          <p>
-            The project is designed to show product thinking as well as implementation range:
-            responsive behavior, real user states, practical admin tooling, and a path from guest
-            browsing to personal cooking workflows.
-          </p>
-        </Reveal>
-
-        <div className="proof-list">
-          {proofPoints.map(([title, body], index) => (
-            <Reveal key={title} delay={index * 80}>
-              <div>
-                <strong>{title}</strong>
-                {body}
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
       <section className="showcase-cta">
         <Reveal>
-          <h2>See it in motion.</h2>
-          <p>
-            Open the deployed app to browse the public experience and follow the product surface
-            yourself.
-          </p>
+          <span className="section-kicker">Guest-first demo</span>
+          <h2>See the public experience.</h2>
+          <p>Open Rencipe as an interviewer would: start at discovery, then follow a recipe.</p>
           <div className="button-row">
             <a href={liveUrl} target="_blank" rel="noreferrer">
               Launch Rencipe <span aria-hidden="true">↗</span>

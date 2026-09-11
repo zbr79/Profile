@@ -11,32 +11,29 @@ export const StyledRencipePage = styled.main`
 
   max-width: none;
   padding: 0;
+  overflow: hidden;
   background: var(--rencipe-cream);
   color: var(--rencipe-ink);
-  overflow: hidden;
 
   .showcase-hero,
-  .showcase-section,
-  .signal-row,
-  .workflow-band,
-  .showcase-cta {
-    padding-right: clamp(25px, 8vw, 150px);
-    padding-left: clamp(25px, 8vw, 150px);
-  }
-
-  .showcase-hero,
-  .workflow-band,
   .showcase-cta {
     width: 100%;
     max-width: none;
     margin: 0;
   }
 
+  .showcase-hero,
+  .guest-surfaces,
+  .showcase-cta {
+    padding-right: clamp(25px, 8vw, 150px);
+    padding-left: clamp(25px, 8vw, 150px);
+  }
+
   .showcase-hero {
-    position: relative;
     padding-top: 112px;
     padding-bottom: 110px;
-    background: radial-gradient(circle at 78% 8%, rgba(240, 199, 107, 0.24), transparent 28%),
+    background:
+      radial-gradient(circle at 78% 8%, rgba(240, 199, 107, 0.24), transparent 28%),
       var(--rencipe-cream);
   }
 
@@ -111,6 +108,7 @@ export const StyledRencipePage = styled.main`
   .button-row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
     gap: 12px;
     margin-top: 36px;
 
@@ -219,53 +217,98 @@ export const StyledRencipePage = styled.main`
     letter-spacing: 0.06em;
   }
 
-  .signal-row {
+  .detail-preview {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 110px clamp(25px, 8vw, 150px);
+    background: var(--rencipe-paper);
+  }
+
+  .detail-preview-inner {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    border-top: 1px solid var(--rencipe-line);
-    border-bottom: 1px solid var(--rencipe-line);
-    background: rgba(255, 253, 249, 0.42);
+    grid-template-columns: minmax(240px, 400px) minmax(0, 1fr);
+    grid-template-areas: 'visual copy';
+    gap: clamp(40px, 6vw, 96px);
+    align-items: center;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
 
-    div {
-      padding: 28px 20px;
-      border-right: 1px solid var(--rencipe-line);
-      text-align: center;
+  .detail-preview-copy {
+    grid-area: copy;
+    justify-self: end;
+    width: min(100%, 540px);
 
-      &:first-child {
-        border-left: 1px solid var(--rencipe-line);
-      }
-    }
-
-    strong {
-      display: block;
-      margin-bottom: 7px;
+    h2 {
+      max-width: 490px;
+      margin: 0 0 22px;
       color: var(--rencipe-ink);
-      font-size: var(--fz-lg);
+      font-size: clamp(36px, 5vw, 68px);
+      letter-spacing: -0.06em;
+      line-height: 0.98;
     }
 
-    span {
+    p {
+      max-width: 490px;
+      margin: 0;
       color: var(--rencipe-muted);
+      font-size: var(--fz-lg);
+      line-height: 1.6;
+    }
+
+    .text-link {
+      display: inline-flex;
+      margin-top: 28px;
+      color: var(--rencipe-orange);
       font-family: var(--font-mono);
-      font-size: var(--fz-xxs);
-      letter-spacing: 0.08em;
+      font-size: var(--fz-xs);
+      letter-spacing: 0.04em;
       text-transform: uppercase;
+
+      &:hover {
+        color: var(--rencipe-ink);
+      }
     }
   }
 
-  .showcase-section {
+  .detail-preview-visual {
+    grid-area: visual;
+    width: min(100%, 400px);
+    min-width: 0;
+    justify-self: start;
+
+    .browser-frame {
+      padding: 0;
+      animation: none;
+      transform: rotate(-1deg);
+    }
+
+    .browser-image {
+      aspect-ratio: auto;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 18px;
+      background: transparent;
+    }
+  }
+
+  .guest-surfaces {
     max-width: 1600px;
     margin: 0 auto;
-    padding-top: 135px;
+    padding-top: 125px;
     padding-bottom: 135px;
   }
 
   .section-intro {
     display: grid;
-    grid-template-columns: minmax(220px, 0.65fr) minmax(0, 1fr);
+    grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1fr);
     gap: 70px;
     align-items: end;
     max-width: 980px;
-    margin-bottom: 62px;
+    margin: 0 auto 62px;
 
     h2 {
       margin: 0;
@@ -284,14 +327,16 @@ export const StyledRencipePage = styled.main`
     }
   }
 
-  .capabilities-grid {
+  .guest-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+    max-width: 1240px;
+    margin: 0 auto;
   }
 
-  .capability-card {
-    min-height: 300px;
+  .guest-card {
+    min-height: 270px;
     padding: 28px;
     border: 1px solid var(--rencipe-line);
     border-radius: 16px;
@@ -303,12 +348,23 @@ export const StyledRencipePage = styled.main`
       transform: translateY(-7px);
     }
 
-    .card-index {
+    .card-index,
+    .card-route {
       display: block;
-      margin-bottom: 72px;
-      color: var(--rencipe-orange);
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card-index {
+      margin-bottom: 8px;
+      color: var(--rencipe-orange);
+    }
+
+    .card-route {
+      margin-bottom: 64px;
+      color: var(--rencipe-muted);
     }
 
     h3 {
@@ -319,192 +375,10 @@ export const StyledRencipePage = styled.main`
     }
 
     p {
+      max-width: 430px;
       margin: 0;
       color: var(--rencipe-muted);
       line-height: 1.6;
-    }
-  }
-
-  .workflow-band {
-    padding-top: 110px;
-    padding-bottom: 110px;
-    background: var(--rencipe-ink);
-    color: #fffaf2;
-
-    .section-kicker {
-      color: var(--rencipe-yellow);
-    }
-
-    h2 {
-      max-width: 650px;
-      margin: 0;
-      color: #fffaf2;
-      font-size: clamp(38px, 5vw, 72px);
-      letter-spacing: -0.06em;
-      line-height: 0.98;
-    }
-  }
-
-  .workflow {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    max-width: 1100px;
-    margin: 76px auto 0;
-  }
-
-  .workflow-step {
-    position: relative;
-    padding: 0 36px 0 0;
-
-    &:not(:last-child):after {
-      content: '';
-      position: absolute;
-      top: 17px;
-      right: 24px;
-      width: calc(100% - 80px);
-      height: 1px;
-      background: rgba(255, 250, 242, 0.28);
-    }
-
-    .step-number {
-      display: inline-grid;
-      place-items: center;
-      width: 36px;
-      height: 36px;
-      margin-bottom: 26px;
-      border: 1px solid rgba(255, 250, 242, 0.45);
-      border-radius: 50%;
-      color: var(--rencipe-yellow);
-      font-family: var(--font-mono);
-      font-size: var(--fz-xs);
-    }
-
-    h3 {
-      margin: 0 0 10px;
-      color: #fffaf2;
-      font-size: var(--fz-xl);
-    }
-
-    p {
-      max-width: 250px;
-      margin: 0;
-      color: rgba(255, 250, 242, 0.65);
-      line-height: 1.55;
-    }
-  }
-
-  .architecture-section {
-    display: grid;
-    grid-template-columns: minmax(240px, 0.7fr) minmax(0, 1.3fr);
-    gap: 90px;
-    align-items: center;
-    max-width: 1240px;
-    margin: 0 auto;
-    padding-top: 135px;
-    padding-bottom: 135px;
-  }
-
-  .architecture-copy {
-    h2 {
-      margin: 0 0 22px;
-      color: var(--rencipe-ink);
-      font-size: clamp(36px, 4vw, 58px);
-      letter-spacing: -0.06em;
-      line-height: 1;
-    }
-
-    p {
-      margin: 0;
-      color: var(--rencipe-muted);
-      font-size: var(--fz-lg);
-      line-height: 1.65;
-    }
-  }
-
-  .architecture-diagram {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    align-items: center;
-  }
-
-  .architecture-node {
-    position: relative;
-    padding: 24px 14px;
-    border: 1px solid var(--rencipe-line);
-    border-radius: 12px;
-    background: var(--rencipe-paper);
-    text-align: center;
-
-    &:not(:last-child):after {
-      content: '→';
-      position: absolute;
-      top: 50%;
-      right: -20px;
-      color: var(--rencipe-orange);
-      transform: translateY(-50%);
-    }
-
-    strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--rencipe-ink);
-      font-size: var(--fz-sm);
-    }
-
-    span {
-      color: var(--rencipe-muted);
-      font-family: var(--font-mono);
-      font-size: 10px;
-      line-height: 1.4;
-    }
-  }
-
-  .proof-section {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 90px;
-    max-width: 1240px;
-    margin: 0 auto;
-    padding-top: 0;
-    padding-bottom: 135px;
-  }
-
-  .proof-copy {
-    h2 {
-      margin: 0 0 22px;
-      color: var(--rencipe-ink);
-      font-size: clamp(36px, 4vw, 58px);
-      letter-spacing: -0.06em;
-      line-height: 1;
-    }
-
-    p {
-      margin: 0;
-      color: var(--rencipe-muted);
-      line-height: 1.65;
-    }
-  }
-
-  .proof-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-
-    div {
-      padding: 21px;
-      border-top: 1px solid var(--rencipe-line);
-      color: var(--rencipe-muted);
-      font-size: var(--fz-sm);
-      line-height: 1.5;
-    }
-
-    strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--rencipe-ink);
-      font-size: var(--fz-md);
     }
   }
 
@@ -514,6 +388,10 @@ export const StyledRencipePage = styled.main`
     background: var(--rencipe-orange);
     color: #fffaf2;
     text-align: center;
+
+    .section-kicker {
+      color: var(--rencipe-yellow);
+    }
 
     h2 {
       margin: 0 auto 18px;
@@ -582,13 +460,8 @@ export const StyledRencipePage = styled.main`
   }
 
   @media (max-width: 900px) {
-    .hero-grid,
-    .architecture-section,
-    .proof-section {
-      grid-template-columns: 1fr;
-    }
-
     .hero-grid {
+      grid-template-columns: 1fr;
       gap: 70px;
     }
 
@@ -596,9 +469,21 @@ export const StyledRencipePage = styled.main`
       max-width: 680px;
     }
 
-    .architecture-section,
-    .proof-section {
-      gap: 52px;
+    .detail-preview-inner {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'copy'
+        'visual';
+      gap: 70px;
+    }
+
+    .detail-preview-copy {
+      justify-self: start;
+      width: 100%;
+    }
+
+    .detail-preview-visual {
+      width: min(100%, 400px);
     }
   }
 
@@ -629,17 +514,16 @@ export const StyledRencipePage = styled.main`
       bottom: 5%;
     }
 
-    .signal-row {
-      grid-template-columns: repeat(2, 1fr);
-
-      div:nth-child(3) {
-        border-left: 1px solid var(--rencipe-line);
-      }
+    .detail-preview {
+      padding-top: 90px;
+      padding-bottom: 90px;
     }
 
-    .showcase-section,
-    .architecture-section,
-    .proof-section {
+    .detail-preview-inner {
+      gap: 58px;
+    }
+
+    .guest-surfaces {
       padding-top: 90px;
       padding-bottom: 90px;
     }
@@ -650,54 +534,15 @@ export const StyledRencipePage = styled.main`
       margin-bottom: 42px;
     }
 
-    .capabilities-grid,
-    .workflow,
-    .proof-list {
+    .guest-grid {
       grid-template-columns: 1fr;
     }
 
-    .capability-card {
+    .guest-card {
       min-height: 0;
 
-      .card-index {
+      .card-route {
         margin-bottom: 48px;
-      }
-    }
-
-    .workflow {
-      gap: 38px;
-      margin-top: 54px;
-    }
-
-    .workflow-step {
-      padding: 0 0 0 56px;
-
-      &:not(:last-child):after {
-        top: 52px;
-        right: auto;
-        left: 17px;
-        width: 1px;
-        height: calc(100% - 10px);
-      }
-
-      .step-number {
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-    }
-
-    .architecture-diagram {
-      grid-template-columns: 1fr;
-      gap: 28px;
-
-      .architecture-node:not(:last-child):after {
-        top: auto;
-        right: auto;
-        bottom: -23px;
-        left: 50%;
-        content: '↓';
-        transform: translateX(-50%);
       }
     }
 
