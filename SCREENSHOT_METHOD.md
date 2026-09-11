@@ -89,5 +89,7 @@ rules to the public recipe detail surface:
   fills the frame instead of sitting in empty side gutters.
 - Displayed at the crop's natural height, at a smaller width than the homepage screenshot,
   so the full recipe remains visible. Do not force this asset into a 16:10 cover crop.
+- Exported at 2× display resolution so the static preview stays sharp through the rotated
+  showcase frame.
 - Labeled as a simplified preview because the browser service could not transfer its
   stylesheet-backed capture into the local project.
