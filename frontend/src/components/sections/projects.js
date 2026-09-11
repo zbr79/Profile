@@ -1,49 +1,37 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
+import kebabCase from 'lodash/kebabCase';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
+import { SplitSection, SplitHeading } from '@components/split';
 
 const StyledProjectsSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 900px;
   padding: 120px 0;
   background-color: var(--bg-alt);
   box-shadow: 0 0 0 100vmax var(--bg-alt);
   clip-path: inset(0 -100vmax);
 
-  h2 {
-    font-size: clamp(24px, 5vw, var(--fz-heading));
-  }
-
-  .archive-link {
-    font-family: var(--font-mono);
-    font-size: var(--fz-sm);
-    &:after {
-      bottom: 0.1em;
-    }
-  }
-
   .projects-grid {
     ${({ theme }) => theme.mixins.resetList};
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-gap: 16px;
     position: relative;
-    margin-top: 50px;
+    width: 100%;
 
     @media (max-width: 1080px) {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     }
   }
 
   .more-button {
     ${({ theme }) => theme.mixins.button};
-    margin: 80px auto 0;
+    margin: 60px auto 0;
   }
 `;
 
@@ -252,9 +240,7 @@ const Projects = () => {
           </div>
 
           <h3 className="project-title">
-            <a href={external} target="_blank" rel="noreferrer">
-              {title}
-            </a>
+            <Link to={`/projects/${kebabCase(title)}/`}>{title}</Link>
           </h3>
 
           <div className="project-description" dangerouslySetInnerHTML={{ __html: html }} />
@@ -275,46 +261,54 @@ const Projects = () => {
 
   return (
     <StyledProjectsSection>
-      <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
+      <SplitSection>
+        <SplitHeading>
+          <span className="overline">What I've Built</span>
+          <h2 ref={revealTitle}>Selected Projects</h2>
+          <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
+            view the archive
+          </Link>
+        </SplitHeading>
 
-      <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
-        view the archive
-      </Link>
+        <div>
+          <ul className="projects-grid">
+            {prefersReducedMotion ? (
+              <>
+                {projectsToShow &&
+                  projectsToShow.map(({ node }, i) => (
+                    <StyledProject key={i}>{projectInner(node)}</StyledProject>
+                  ))}
+              </>
+            ) : (
+              <TransitionGroup component={null}>
+                {projectsToShow &&
+                  projectsToShow.map(({ node }, i) => (
+                    <CSSTransition
+                      key={i}
+                      classNames="fadeup"
+                      timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
+                      exit={false}>
+                      <StyledProject
+                        key={i}
+                        ref={el => (revealProjects.current[i] = el)}
+                        style={{
+                          transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
+                        }}>
+                        {projectInner(node)}
+                      </StyledProject>
+                    </CSSTransition>
+                  ))}
+              </TransitionGroup>
+            )}
+          </ul>
 
-      <ul className="projects-grid">
-        {prefersReducedMotion ? (
-          <>
-            {projectsToShow &&
-              projectsToShow.map(({ node }, i) => (
-                <StyledProject key={i}>{projectInner(node)}</StyledProject>
-              ))}
-          </>
-        ) : (
-          <TransitionGroup component={null}>
-            {projectsToShow &&
-              projectsToShow.map(({ node }, i) => (
-                <CSSTransition
-                  key={i}
-                  classNames="fadeup"
-                  timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
-                  exit={false}>
-                  <StyledProject
-                    key={i}
-                    ref={el => (revealProjects.current[i] = el)}
-                    style={{
-                      transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
-                    }}>
-                    {projectInner(node)}
-                  </StyledProject>
-                </CSSTransition>
-              ))}
-          </TransitionGroup>
-        )}
-      </ul>
-
-      <button className="more-button" onClick={() => setShowMore(!showMore)}>
-        Show {showMore ? 'Less' : 'More'}
-      </button>
+          {projects.length > GRID_LIMIT && (
+            <button className="more-button" onClick={() => setShowMore(!showMore)}>
+              Show {showMore ? 'Less' : 'More'}
+            </button>
+          )}
+        </div>
+      </SplitSection>
     </StyledProjectsSection>
   );
 };

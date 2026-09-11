@@ -25,6 +25,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
   const postTemplate = path.resolve(`src/templates/post.js`);
+  const projectTemplate = path.resolve(`src/templates/project.js`);
   const tagTemplate = path.resolve('src/templates/tag.js');
 
   const result = await graphql(`
@@ -38,6 +39,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           node {
             frontmatter {
               slug
+            }
+          }
+        }
+      }
+      projectsRemark: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/content/projects/" } }
+      ) {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
             }
           }
         }
@@ -65,6 +78,31 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: postTemplate,
       context: {},
     });
+  });
+
+  // Create project detail pages
+  const projects = result.data.projectsRemark.edges;
+
+  projects.forEach(({ node }) => {
+    const projectSlug = _.kebabCase(node.frontmatter.title);
+
+    createPage({
+      path: `/projects/${projectSlug}/`,
+      component: projectTemplate,
+      context: {
+        id: node.id,
+      },
+    });
+
+    if (projectSlug === 'rencipe') {
+      createPage({
+        path: '/project/rencipe/',
+        component: projectTemplate,
+        context: {
+          id: node.id,
+        },
+      });
+    }
   });
 
   // Extract tag data from query
