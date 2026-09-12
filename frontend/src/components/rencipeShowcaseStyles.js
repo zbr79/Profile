@@ -15,16 +15,14 @@ export const StyledRencipePage = styled.main`
   background: var(--rencipe-cream);
   color: var(--rencipe-ink);
 
-  .showcase-hero,
-  .showcase-cta {
+  .showcase-hero {
     width: 100%;
     max-width: none;
     margin: 0;
   }
 
   .showcase-hero,
-  .guest-surfaces,
-  .showcase-cta {
+  .guest-surfaces {
     padding-right: clamp(25px, 8vw, 150px);
     padding-left: clamp(25px, 8vw, 150px);
   }
@@ -315,6 +313,9 @@ export const StyledRencipePage = styled.main`
   .responsive-preview-copy {
     max-width: 520px;
     margin-bottom: 0;
+    position: relative;
+    left: clamp(0px, 8vw, 140px);
+    justify-self: end;
 
     h2 {
       max-width: 400px;
@@ -352,9 +353,11 @@ export const StyledRencipePage = styled.main`
 
   .responsive-devices {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+    grid-template-columns: minmax(0, 1fr) minmax(176px, 240px);
     align-items: flex-end;
-    gap: clamp(18px, 3vw, 38px);
+    column-gap: 0;
+    width: 80%;
+    justify-self: end;
     min-width: 0;
   }
 
@@ -378,9 +381,12 @@ export const StyledRencipePage = styled.main`
     grid-row: 1;
     display: block;
     width: 100%;
+    margin-left: clamp(-82px, -4vw, -36px);
     min-width: 0;
     visibility: visible;
     opacity: 1;
+    position: relative;
+    z-index: 2;
   }
 
   .phone-frame {
@@ -389,7 +395,7 @@ export const StyledRencipePage = styled.main`
     border-radius: 28px;
     background: var(--rencipe-paper);
     box-shadow: 0 28px 70px rgba(82, 59, 39, 0.16);
-    transform: rotate(2deg);
+    transform: rotate(2deg) translateY(10px);
   }
 
   .mobile-image {
@@ -410,133 +416,80 @@ export const StyledRencipePage = styled.main`
     text-transform: uppercase;
   }
 
-  .guest-surfaces {
-    max-width: 1600px;
-    margin: 0 auto;
-    padding-top: 125px;
-    padding-bottom: 135px;
+  .showcase-build {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 125px clamp(25px, 8vw, 150px);
+    background: var(--rencipe-paper);
   }
 
-  .section-intro {
+  .showcase-build-inner {
     display: grid;
-    grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1fr);
-    gap: 70px;
-    align-items: end;
-    max-width: 980px;
-    margin: 0 auto 62px;
-
-    h2 {
-      margin: 0;
-      color: var(--rencipe-ink);
-      font-size: clamp(36px, 5vw, 68px);
-      letter-spacing: -0.06em;
-      line-height: 0.98;
-    }
-
-    p {
-      max-width: 520px;
-      margin: 0;
-      color: var(--rencipe-muted);
-      font-size: var(--fz-lg);
-      line-height: 1.65;
-    }
-  }
-
-  .guest-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(28px, 4vw, 60px);
+    align-items: start;
     max-width: 1240px;
     margin: 0 auto;
   }
 
-  .guest-card {
-    min-height: 270px;
-    padding: 28px;
-    border: 1px solid var(--rencipe-line);
-    border-radius: 16px;
-    background: var(--rencipe-paper);
-    transition: transform 250ms ease, box-shadow 250ms ease;
-
-    &:hover {
-      box-shadow: 0 18px 42px rgba(82, 59, 39, 0.1);
-      transform: translateY(-7px);
-    }
-
-    .card-index,
-    .card-route {
-      display: block;
-      font-family: var(--font-mono);
-      font-size: var(--fz-xs);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .card-index {
-      margin-bottom: 8px;
-      color: var(--rencipe-orange);
-    }
-
-    .card-route {
-      margin-bottom: 64px;
-      color: var(--rencipe-muted);
-    }
-
-    h3 {
-      margin: 0 0 12px;
-      color: var(--rencipe-ink);
-      font-size: 26px;
-      letter-spacing: -0.04em;
-    }
-
-    p {
-      max-width: 430px;
-      margin: 0;
-      color: var(--rencipe-muted);
-      line-height: 1.6;
-    }
-  }
-
-  .showcase-cta {
-    padding-top: 110px;
-    padding-bottom: 120px;
-    background: var(--rencipe-orange);
-    color: #fffaf2;
-    text-align: center;
-
-    .section-kicker {
-      color: var(--rencipe-yellow);
-    }
-
+  .showcase-build-heading {
     h2 {
-      margin: 0 auto 18px;
-      color: #fffaf2;
+      max-width: 540px;
+      margin: 0;
+      color: var(--rencipe-ink);
       font-size: clamp(42px, 6vw, 82px);
       letter-spacing: -0.07em;
       line-height: 0.95;
     }
 
-    p {
-      max-width: 500px;
-      margin: 0 auto;
-      color: rgba(255, 250, 242, 0.8);
+    > p {
+      max-width: 520px;
+      margin: 30px 0 0;
+      color: var(--rencipe-muted);
       font-size: var(--fz-lg);
-      line-height: 1.55;
+      line-height: 1.6;
+    }
+  }
+
+  .showcase-build-details {
+    max-width: 620px;
+    justify-self: start;
+  }
+
+  .technology-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--rencipe-line);
+    border-left: 1px solid var(--rencipe-line);
+
+    article {
+      min-height: 112px;
+      padding: 18px 20px;
+      border-right: 1px solid var(--rencipe-line);
+      border-bottom: 1px solid var(--rencipe-line);
     }
 
-    .button-row {
-      justify-content: center;
-      margin-top: 34px;
+    article:last-child {
+      grid-column: span 2;
+    }
 
-      a {
-        border-color: #fffaf2;
-        color: #fffaf2;
+    span {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--rencipe-orange);
+      font-family: var(--font-mono);
+      font-size: var(--fz-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
 
-        &:hover {
-          background: #fffaf2;
-          color: var(--rencipe-orange);
-        }
-      }
+    strong {
+      display: block;
+      color: var(--rencipe-ink);
+      font-size: 18px;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
     }
   }
 
@@ -608,10 +561,21 @@ export const StyledRencipePage = styled.main`
 
     .responsive-preview-copy {
       max-width: 680px;
+      left: 0;
+      justify-self: start;
     }
 
     .responsive-devices {
-      grid-template-columns: minmax(0, 1fr) minmax(190px, 230px);
+      grid-template-columns: minmax(0, 1fr) minmax(176px, 184px);
+    }
+
+    .showcase-build-inner {
+      grid-template-columns: 1fr;
+      gap: 52px;
+    }
+
+    .showcase-build-details {
+      justify-self: start;
     }
   }
 
@@ -659,7 +623,8 @@ export const StyledRencipePage = styled.main`
     .responsive-devices {
       grid-template-columns: 1fr;
       align-items: center;
-      width: 100%;
+      width: 80%;
+      justify-self: center;
       gap: 38px;
     }
 
@@ -672,36 +637,23 @@ export const StyledRencipePage = styled.main`
     .responsive-mobile {
       grid-column: 1;
       grid-row: 2;
-      width: min(230px, 72%);
+      width: min(184px, 72%);
       justify-self: center;
+      margin-left: 0;
+      transform: none;
     }
 
-    .guest-surfaces {
+    .showcase-build {
       padding-top: 90px;
       padding-bottom: 90px;
     }
 
-    .section-intro {
+    .technology-list {
       grid-template-columns: 1fr;
-      gap: 24px;
-      margin-bottom: 42px;
-    }
 
-    .guest-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .guest-card {
-      min-height: 0;
-
-      .card-route {
-        margin-bottom: 48px;
+      article:last-child {
+        grid-column: auto;
       }
-    }
-
-    .showcase-cta {
-      padding-top: 86px;
-      padding-bottom: 90px;
     }
   }
 `;

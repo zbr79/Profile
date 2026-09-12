@@ -9,37 +9,6 @@ import { StyledRencipePage } from './rencipeShowcaseStyles';
 const browseDesktopScreenshot = '/rencipe-browse-desktop-simplified.svg';
 const browseMobileScreenshot = '/rencipe-browse-mobile-simplified.svg';
 
-const guestSurfaces = [
-  {
-    index: '01 / HOME',
-    route: '/',
-    title: 'Start with something worth cooking',
-    body:
-      'Featured recipes, public tabs, and a focused kitchen converter give guests a clear first step.',
-  },
-  {
-    index: '02 / BROWSE',
-    route: '/browse',
-    title: 'Find a public recipe',
-    body:
-      'Guests can browse public recipes, filter by category, and switch between popular and recent results.',
-  },
-  {
-    index: '03 / RECIPE DETAIL',
-    route: '/recipes/:id',
-    title: 'Open the recipe and cook',
-    body:
-      'A public recipe page puts the ingredients, steps, tips, and useful cooking context in one place.',
-  },
-  {
-    index: '04 / PUBLIC INFO',
-    route: '/about · /legal · /contact',
-    title: 'Get the public context',
-    body:
-      'About, Legal, and Contact pages complete the guest-facing product surface around the recipe experience.',
-  },
-];
-
 const Reveal = ({ children, className = '', delay = 0 }) => {
   const [ref, isVisible] = useInView();
 
@@ -192,46 +161,47 @@ const RencipeShowcase = ({ external, github }) => {
         </div>
       </section>
 
-      <section className="guest-surfaces">
-        <Reveal className="section-intro">
-          <div>
-            <span className="section-kicker">The guest view</span>
-            <h2>Four public surfaces are enough.</h2>
-          </div>
-          <p>
-            The presentation follows the routes an interviewer can open without an account, from
-            discovery through a recipe and the public information pages.
-          </p>
-        </Reveal>
+      <section className="showcase-build">
+        <div className="showcase-build-inner">
+          <Reveal className="showcase-build-heading">
+            <span className="section-kicker">04 / Build notes</span>
+            <h2>The stack behind Rencipe.</h2>
+            <p>A full-stack recipe app built for public discovery.</p>
+          </Reveal>
 
-        <div className="guest-grid">
-          {guestSurfaces.map(({ index, route, title, body }, indexPosition) => (
-            <Reveal key={index} delay={indexPosition * 90}>
-              <article className="guest-card">
-                <span className="card-index">{index}</span>
-                <span className="card-route">{route}</span>
-                <h3>{title}</h3>
-                <p>{body}</p>
+          <Reveal className="showcase-build-details" delay={140}>
+            <div className="technology-list">
+              <article>
+                <span>Frontend</span>
+                <strong>Next.js + React</strong>
               </article>
-            </Reveal>
-          ))}
+              <article>
+                <span>Language</span>
+                <strong>TypeScript</strong>
+              </article>
+              <article>
+                <span>Backend</span>
+                <strong>Express</strong>
+              </article>
+              <article>
+                <span>Data</span>
+                <strong>MongoDB</strong>
+              </article>
+              <article>
+                <span>Media</span>
+                <strong>Cloudinary</strong>
+              </article>
+              <article>
+                <span>Testing</span>
+                <strong>Playwright</strong>
+              </article>
+              <article>
+                <span>Delivery</span>
+                <strong>PM2 + CI</strong>
+              </article>
+            </div>
+          </Reveal>
         </div>
-      </section>
-
-      <section className="showcase-cta">
-        <Reveal>
-          <span className="section-kicker">Guest-first demo</span>
-          <h2>See the public experience.</h2>
-          <p>Open Rencipe as an interviewer would: start at discovery, then follow a recipe.</p>
-          <div className="button-row">
-            <a href={liveUrl} target="_blank" rel="noreferrer">
-              Launch Rencipe <span aria-hidden="true">↗</span>
-            </a>
-            <a href={github} target="_blank" rel="noreferrer">
-              GitHub repository <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </Reveal>
       </section>
     </StyledRencipePage>
   );
