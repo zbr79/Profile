@@ -6,6 +6,9 @@ import productScreenshot from '@images/rencipe-homepage-simplified.png';
 import recipeDetailScreenshot from '@images/rencipe-recipe-detail-focused.png';
 import { StyledRencipePage } from './rencipeShowcaseStyles';
 
+const browseDesktopScreenshot = '/rencipe-browse-desktop-simplified.svg';
+const browseMobileScreenshot = '/rencipe-browse-mobile-simplified.svg';
+
 const guestSurfaces = [
   {
     index: '01 / HOME',
@@ -140,6 +143,52 @@ const RencipeShowcase = ({ external, github }) => {
               View the live recipe <span aria-hidden="true">↗</span>
             </a>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="responsive-preview">
+        <div className="responsive-preview-inner">
+          <Reveal className="responsive-preview-copy">
+            <span className="section-kicker">03 / Browse discovery</span>
+            <h2>Find the next thing to cook.</h2>
+            <p>
+              Public recipes stay easy to scan with category filters, popular sorting, and a
+              focused card grid that works across desktop and mobile.
+            </p>
+            <div className="responsive-facts">
+              <span>Public recipes / guest view</span>
+              <span>Categories / quick filtering</span>
+            </div>
+          </Reveal>
+
+          <div className="responsive-devices">
+            <div className="responsive-desktop">
+              <div className="browser-frame">
+                <div className="browser-bar" aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <img
+                  className="browser-image"
+                  src={browseDesktopScreenshot}
+                  alt="Simplified Rencipe public Browse page desktop preview"
+                />
+              </div>
+              <span className="responsive-label">Desktop</span>
+            </div>
+
+            <div className="responsive-mobile">
+              <div className="phone-frame">
+                <img
+                  className="mobile-image"
+                  src={browseMobileScreenshot}
+                  alt="Simplified Rencipe public Browse page mobile preview"
+                />
+              </div>
+              <span className="responsive-label">Mobile</span>
+            </div>
+          </div>
         </div>
       </section>
 

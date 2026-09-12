@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2880" height="1800" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">Rencipe Browse page desktop preview</title>
+  <desc id="desc">A simplified guest Browse page with public recipe categories and recipe cards.</desc>
+  <rect width="1440" height="900" fill="#fbf8f1"/>
+  <rect width="176" height="900" fill="#fffdf9"/>
+  <path d="M176 0v900" stroke="#e5ddd1"/>
+  <g fill="#3c352f" font-family="Arial, Helvetica, sans-serif">
+    <text x="28" y="45" font-size="18" font-weight="700">Rencipe</text>
+    <text x="28" y="93" font-size="12" fill="#857a70">Search recipes</text>
+    <text x="28" y="145" font-size="12">Home</text>
+    <rect x="16" y="162" width="144" height="34" rx="8" fill="#f7e8bd"/>
+    <text x="28" y="184" font-size="12" font-weight="700">Browse</text>
+    <text x="28" y="226" font-size="12">a  Saved</text>
+    <text x="20" y="282" font-size="9" letter-spacing="1.5" fill="#a09589">EXPLORE</text>
+    <text x="28" y="310" font-size="12">&amp;  Surprise me</text>
+    <text x="28" y="340" font-size="12">ù  Chinese</text>
+    <text x="136" y="340" font-size="10" fill="#a09589">28</text>
+    <text x="28" y="368" font-size="12">ù  Cantonese</text>
+    <text x="136" y="368" font-size="10" fill="#a09589">6</text>
+    <text x="28" y="396" font-size="12">ù  Sichuan</text>
+    <text x="136" y="396" font-size="10" fill="#a09589">6</text>
+    <text x="28" y="424" font-size="12">ù  Korean</text>
+    <text x="136" y="424" font-size="10" fill="#a09589">8</text>
+    <text x="28" y="452" font-size="12">ù  Japanese</text>
+    <text x="136" y="452" font-size="10" fill="#a09589">8</text>
+    <text x="28" y="480" font-size="12">ù  Thai</text>
+    <text x="136" y="480" font-size="10" fill="#a09589">6</text>
+    <text x="28" y="508" font-size="12">ù  Vietnamese</text>
+    <text x="136" y="508" font-size="10" fill="#a09589">7</text>
+    <text x="28" y="536" font-size="12">ù  Dinner</text>
+    <text x="136" y="536" font-size="10" fill="#a09589">30</text>
+    <text x="20" y="614" font-size="9" letter-spacing="1.5" fill="#a09589">RECENTLY VIEWED</text>
+    <text x="28" y="643" font-size="11">ù  Char Siu</text>
+    <text x="28" y="670" font-size="11">ù  Banh Mi</text>
+    <text x="28" y="697" font-size="11">ù  Twice-Cooked Pork</text>
+    <circle cx="28" cy="824" r="14" fill="#e6f0f5"/>
+    <text x="24" y="828" font-size="10" fill="#6b8ca0">G</text>
+    <text x="52" y="828" font-size="11">Guest</text>
+    <text x="140" y="828" font-size="14">ù</text>
+  </g>
+  <g transform="translate(216 52)" font-family="Arial, Helvetica, sans-serif" fill="#3c352f">
+    <text x="0" y="0" font-size="10" fill="#9b9084">Home  :  Browse</text>
+    <text x="0" y="44" font-size="28" font-weight="700">Browse</text>
+    <text x="1038" y="42" font-size="11" fill="#a4672c">Most Popular</text>
+    <g font-size="10">
+      <rect x="0" y="67" width="44" height="29" rx="15" fill="#b85d32"/>
+      <text x="13" y="85" fill="#fffdf9">All</text>
+      <rect x="52" y="67" width="69" height="29" rx="15" fill="#fffdf9" stroke="#e2d7c9"/>
+      <text x="67" y="85">Chinese</text>
+      <rect x="129" y="67" width="78" height="29" rx="15" fill="#fffdf9" stroke="#e2d7c9"/>
+      <text x="141" y="85">Cantonese</text>
+      <rect x="215" y="67" width="65" height="29" rx="15" fill="#fffdf9" stroke="#e2d7c9"/>
+      <text x="229" y="85">Sichuan</text>
+      <rect x="288" y="67" width="61" height="29" rx="15" fill="#fffdf9" stroke="#e2d7c9"/>
+      <text x="304" y="85">Korean</text>
+      <rect x="357" y="67" width="71" height="29" rx="15" fill="#fffdf9" stroke="#e2d7c9"/>
+      <text x="371" y="85">Japanese</text>
+      <rect x="436" y="67" width="47" height="29" rx="15" fill="#fffdf9" stroke="#e2d7c9"/>
+      <text x="451" y="85">Thai</text>
+      <rect x="491" y="67" width="82" height="29" rx="15" fill="#fffdf9" stroke="#e2d7c9"/>
+      <text x="503" y="85">Vietnamese</text>
+      <rect x="581" y="67" width="60" height="29" rx="15" fill="#fffdf9" stroke="#e2d7c9"/>
+      <text x="596" y="85">Dinner</text>
+      <rect x="649" y="67" width="48" height="29" rx="15" fill="#fffdf9" stroke="#e2d7c9"/>
+      <text x="663" y="85">Easy</text>
+      <rect x="705" y="67" width="55" height="29" rx="15" fill="#fffdf9" stroke="#e2d7c9"/>
+      <text x="719" y="85">Quick</text>
+      <rect x="768" y="67" width="55" height="29" rx="15" fill="#fffdf9" stroke="#e2d7c9"/>
+      <text x="782" y="85">Spicy</text>
+      <rect x="831" y="67" width="53" height="29" rx="15" fill="#fffdf9" stroke="#e2d7c9"/>
+      <text x="846" y="85">Pork</text>
+    </g>
+    <g transform="translate(0 118)">
+      <g>
+        <rect width="220" height="210" rx="9" fill="#fffdf9" stroke="#e2d7c9"/>
+        <rect width="220" height="132" rx="9" fill="#d9d0c4"/><rect y="112" width="220" height="20" fill="#d9d0c4"/>
+        <text x="14" y="156" font-size="13" font-weight="700">Peking Duck</text><text x="14" y="174" font-size="10" fill="#877b70">Roast duck with pancakes</text><text x="14" y="198" font-size="10" fill="#a4672c">Rencipe</text><text x="194" y="198" font-size="18" fill="#c58a46">a</text>
+      </g>
+      <g transform="translate(236 0)">
+        <rect width="220" height="210" rx="9" fill="#fffdf9" stroke="#e2d7c9"/><rect width="220" height="132" rx="9" fill="#c9d0cd"/><rect y="112" width="220" height="20" fill="#c9d0cd"/>
+        <text x="14" y="156" font-size="13" font-weight="700">Pho Bo</text><text x="14" y="174" font-size="10" fill="#877b70">Beef noodle soup</text><text x="14" y="198" font-size="10" fill="#a4672c">Rencipe</text><text x="194" y="198" font-size="18" fill="#c58a46">a</text>
+      </g>
+      <g transform="translate(472 0)">
+        <rect width="220" height="210" rx="9" fill="#fffdf9" stroke="#e2d7c9"/><rect width="220" height="132" rx="9" fill="#d8c8a9"/><rect y="112" width="220" height="20" fill="#d8c8a9"/>
+        <text x="14" y="156" font-size="13" font-weight="700">Bibimbap</text><text x="14" y="174" font-size="10" fill="#877b70">Korean rice bowl</text><text x="14" y="198" font-size="10" fill="#a4672c">Rencipe</text><text x="194" y="198" font-size="18" fill="#c58a46">a</text>
+      </g>
+      <g transform="translate(708 0)">
+        <rect width="220" height="210" rx="9" fill="#fffdf9" stroke="#e2d7c9"/><rect width="220" height="132" rx="9" fill="#c9b8ae"/><rect y="112" width="220" height="20" fill="#c9b8ae"/>
+        <text x="14" y="156" font-size="13" font-weight="700">Yangnyeom Chicken</text><text x="14" y="174" font-size="10" fill="#877b70">Korean Fried Chicken</text><text x="14" y="198" font-size="10" fill="#a4672c">Rencipe</text><text x="194" y="198" font-size="18" fill="#c58a46">a</text>
+      </g>
+      <g transform="translate(944 0)">
+        <rect width="220" height="210" rx="9" fill="#fffdf9" stroke="#e2d7c9"/><rect width="220" height="132" rx="9" fill="#d0c4ae"/><rect y="112" width="220" height="20" fill="#d0c4ae"/>
+        <text x="14" y="156" font-size="13" font-weight="700">Kung Pao Chicken</text><text x="14" y="174" font-size="10" fill="#877b70">Chicken with peanuts</text><text x="14" y="198" font-size="10" fill="#a4672c">Rencipe</text><text x="194" y="198" font-size="18" fill="#c58a46">a</text>
+      </g>
+      <g transform="translate(0 230)">
+        <rect width="220" height="210" rx="9" fill="#fffdf9" stroke="#e2d7c9"/><rect width="220" height="132" rx="9" fill="#d1cbc1"/><rect y="112" width="220" height="20" fill="#d1cbc1"/>
+        <text x="14" y="156" font-size="13" font-weight="700">Xiaolongbao</text><text x="14" y="174" font-size="10" fill="#877b70">Soup dumplings</text><text x="14" y="198" font-size="10" fill="#a4672c">Rencipe</text><text x="194" y="198" font-size="18" fill="#c58a46">a</text>
+      </g>
+      <g transform="translate(236 230)">
+        <rect width="220" height="210" rx="9" fill="#fffdf9" stroke="#e2d7c9"/><rect width="220" height="132" rx="9" fill="#c9c4b0"/><rect y="112" width="220" height="20" fill="#c9c4b0"/>
+        <text x="14" y="156" font-size="13" font-weight="700">Pad Thai</text><text x="14" y="174" font-size="10" fill="#877b70">Stir-fried rice noodles</text><text x="14" y="198" font-size="10" fill="#a4672c">Rencipe</text><text x="194" y="198" font-size="18" fill="#c58a46">a</text>
+      </g>
+      <g transform="translate(472 230)">
+        <rect width="220" height="210" rx="9" fill="#fffdf9" stroke="#e2d7c9"/><rect width="220" height="132" rx="9" fill="#c8d0b9"/><rect y="112" width="220" height="20" fill="#c8d0b9"/>
+        <text x="14" y="156" font-size="13" font-weight="700">Shoyu Ramen</text><text x="14" y="174" font-size="10" fill="#877b70">Soy broth ramen</text><text x="14" y="198" font-size="10" fill="#a4672c">Rencipe</text><text x="194" y="198" font-size="18" fill="#c58a46">a</text>
+      </g>
+      <g transform="translate(708 230)">
+        <rect width="220" height="210" rx="9" fill="#fffdf9" stroke="#e2d7c9"/><rect width="220" height="132" rx="9" fill="#d5c7b8"/><rect y="112" width="220" height="20" fill="#d5c7b8"/>
+        <text x="14" y="156" font-size="13" font-weight="700">Tom Yum Goong</text><text x="14" y="174" font-size="10" fill="#877b70">Hot and sour shrimp soup</text><text x="14" y="198" font-size="10" fill="#a4672c">Rencipe</text><text x="194" y="198" font-size="18" fill="#c58a46">a</text>
+      </g>
+      <g transform="translate(944 230)">
+        <rect width="220" height="210" rx="9" fill="#fffdf9" stroke="#e2d7c9"/><rect width="220" height="132" rx="9" fill="#c5ccc8"/><rect y="112" width="220" height="20" fill="#c5ccc8"/>
+        <text x="14" y="156" font-size="13" font-weight="700">Bulgogi</text><text x="14" y="174" font-size="10" fill="#877b70">Grilled marinated beef</text><text x="14" y="198" font-size="10" fill="#a4672c">Rencipe</text><text x="194" y="198" font-size="18" fill="#c58a46">a</text>
+      </g>
+    </g>
+  </g>
+</svg>

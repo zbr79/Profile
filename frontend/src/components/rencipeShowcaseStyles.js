@@ -295,6 +295,121 @@ export const StyledRencipePage = styled.main`
     }
   }
 
+  .responsive-preview {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 125px clamp(25px, 8vw, 150px);
+    background: var(--rencipe-cream);
+  }
+
+  .responsive-preview-inner {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.55fr) minmax(0, 1.45fr);
+    gap: clamp(50px, 6vw, 90px);
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .responsive-preview-copy {
+    max-width: 520px;
+    margin-bottom: 0;
+
+    h2 {
+      max-width: 400px;
+      margin: 0 0 22px;
+      color: var(--rencipe-ink);
+      font-size: clamp(32px, 4vw, 54px);
+      letter-spacing: -0.06em;
+      line-height: 0.98;
+    }
+
+    p {
+      max-width: 390px;
+      margin: 0;
+      color: var(--rencipe-muted);
+      font-size: var(--fz-md);
+      line-height: 1.6;
+    }
+  }
+
+  .responsive-facts {
+    display: grid;
+    gap: 10px;
+    margin-top: 30px;
+    color: var(--rencipe-muted);
+    font-family: var(--font-mono);
+    font-size: var(--fz-xs);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    span {
+      padding-top: 10px;
+      border-top: 1px solid var(--rencipe-line);
+    }
+  }
+
+  .responsive-devices {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+    align-items: flex-end;
+    gap: clamp(18px, 3vw, 38px);
+    min-width: 0;
+  }
+
+  .responsive-desktop {
+    grid-column: 1;
+    grid-row: 1;
+    display: block;
+    width: 100%;
+    min-width: 0;
+    visibility: visible;
+    opacity: 1;
+
+    .browser-frame {
+      animation: none;
+      transform: rotate(1deg);
+    }
+  }
+
+  .responsive-mobile {
+    grid-column: 2;
+    grid-row: 1;
+    display: block;
+    width: 100%;
+    min-width: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .phone-frame {
+    padding: 8px;
+    border: 1px solid rgba(47, 41, 35, 0.16);
+    border-radius: 28px;
+    background: var(--rencipe-paper);
+    box-shadow: 0 28px 70px rgba(82, 59, 39, 0.16);
+    transform: rotate(2deg);
+  }
+
+  .mobile-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+
+  .responsive-label {
+    display: block;
+    margin-top: 16px;
+    color: var(--rencipe-muted);
+    font-family: var(--font-mono);
+    font-size: var(--fz-xs);
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
   .guest-surfaces {
     max-width: 1600px;
     margin: 0 auto;
@@ -485,6 +600,19 @@ export const StyledRencipePage = styled.main`
     .detail-preview-visual {
       width: min(100%, 400px);
     }
+
+    .responsive-preview-inner {
+      grid-template-columns: 1fr;
+      gap: 70px;
+    }
+
+    .responsive-preview-copy {
+      max-width: 680px;
+    }
+
+    .responsive-devices {
+      grid-template-columns: minmax(0, 1fr) minmax(190px, 230px);
+    }
   }
 
   @media (max-width: 680px) {
@@ -521,6 +649,31 @@ export const StyledRencipePage = styled.main`
 
     .detail-preview-inner {
       gap: 58px;
+    }
+
+    .responsive-preview {
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+
+    .responsive-devices {
+      grid-template-columns: 1fr;
+      align-items: center;
+      width: 100%;
+      gap: 38px;
+    }
+
+    .responsive-desktop {
+      grid-column: 1;
+      grid-row: 1;
+      width: 100%;
+    }
+
+    .responsive-mobile {
+      grid-column: 1;
+      grid-row: 2;
+      width: min(230px, 72%);
+      justify-self: center;
     }
 
     .guest-surfaces {
