@@ -87,12 +87,13 @@ const StyledProjectContent = styled.article`
 const ProjectTemplate = ({ data, location }) => {
   const { frontmatter, html } = data.markdownRemark;
   const { title, date, tech, github, external } = frontmatter;
+  const isRencipe = title === 'Rencipe';
 
   return (
-    <Layout location={location}>
+    <Layout location={location} showPortfolioChrome={!isRencipe}>
       <Helmet title={title} />
 
-      {title === 'Rencipe' ? (
+      {isRencipe ? (
         <RencipeShowcase external={external} github={github} />
       ) : (
         <StyledProjectContainer>

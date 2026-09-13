@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { useInView } from '@hooks';
 import productScreenshot from '@images/rencipe-homepage-simplified.png';
@@ -34,25 +33,19 @@ const RencipeShowcase = ({ external, github }) => {
   return (
     <StyledRencipePage>
       <section className="showcase-hero">
-        <div className="showcase-nav">
-          <Link to="/archive">← Project archive</Link>
-          <span>Rencipe / guest view</span>
-        </div>
-
         <div className="hero-grid">
           <Reveal className="hero-copy">
-            <span className="eyebrow">Guest-facing recipe platform</span>
+            <span className="eyebrow">Recipe discovery platform</span>
             <h1>
               Recipes for <em>real life.</em>
             </h1>
             <p>
-              Rencipe gives visitors a simple path from public discovery to a recipe they can read
-              and cook.
+              Rencipe brings discovery, browsing, and cooking into one simple path.
             </p>
 
             <div className="button-row">
               <a className="primary" href={liveUrl} target="_blank" rel="noreferrer">
-                Open guest demo <span aria-hidden="true">↗</span>
+                Open live demo <span aria-hidden="true">↗</span>
               </a>
               <a href={github} target="_blank" rel="noreferrer">
                 View source <span aria-hidden="true">↗</span>
@@ -62,11 +55,11 @@ const RencipeShowcase = ({ external, github }) => {
             <div className="hero-facts">
               <div>
                 <strong>Public routes</strong>
-                built for first-time visitors
+                built for discovery
               </div>
               <div>
-                <strong>No account required</strong>
-                discover and read recipes
+                <strong>Open access</strong>
+                browse and read recipes
               </div>
             </div>
           </Reveal>
@@ -81,7 +74,7 @@ const RencipeShowcase = ({ external, github }) => {
               <img
                 className="browser-image"
                 src={productScreenshot}
-                alt="Simplified Rencipe guest homepage with real recipe text and a focused kitchen converter"
+                alt="Simplified Rencipe homepage with real recipe text and a focused kitchen converter"
               />
             </div>
             <div className="floating-note">discover · browse · cook</div>
@@ -106,7 +99,7 @@ const RencipeShowcase = ({ external, github }) => {
             <h2>Open the recipe and cook.</h2>
             <p>
               The detail surface keeps the title, ingredients, steps, metadata, and cooking context
-              together so a guest can move from curiosity to action.
+              together so a reader can move from curiosity to action.
             </p>
             <a className="text-link" href={liveUrl} target="_blank" rel="noreferrer">
               View the live recipe <span aria-hidden="true">↗</span>
@@ -125,7 +118,7 @@ const RencipeShowcase = ({ external, github }) => {
               focused card grid that works across desktop and mobile.
             </p>
             <div className="responsive-facts">
-              <span>Public recipes / guest view</span>
+              <span>Public recipes / open browsing</span>
               <span>Categories / quick filtering</span>
             </div>
           </Reveal>

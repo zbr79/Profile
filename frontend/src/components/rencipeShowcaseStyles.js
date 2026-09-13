@@ -21,38 +21,17 @@ export const StyledRencipePage = styled.main`
     margin: 0;
   }
 
-  .showcase-hero,
-  .guest-surfaces {
+  .showcase-hero {
     padding-right: clamp(25px, 8vw, 150px);
     padding-left: clamp(25px, 8vw, 150px);
   }
 
   .showcase-hero {
-    padding-top: 112px;
+    padding-top: 56px;
     padding-bottom: 110px;
     background:
       radial-gradient(circle at 78% 8%, rgba(240, 199, 107, 0.24), transparent 28%),
       var(--rencipe-cream);
-  }
-
-  .showcase-nav {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1240px;
-    margin: 0 auto 90px;
-    color: var(--rencipe-muted);
-    font-family: var(--font-mono);
-    font-size: var(--fz-xs);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-
-    a {
-      color: inherit;
-
-      &:hover {
-        color: var(--rencipe-orange);
-      }
-    }
   }
 
   .hero-grid {
@@ -453,6 +432,7 @@ export const StyledRencipePage = styled.main`
   }
 
   .showcase-build-details {
+    width: 100%;
     max-width: 620px;
     justify-self: start;
   }
@@ -581,20 +561,26 @@ export const StyledRencipePage = styled.main`
 
   @media (max-width: 680px) {
     .showcase-hero {
-      padding-top: 90px;
+      padding-top: 48px;
       padding-bottom: 80px;
-    }
-
-    .showcase-nav {
-      margin-bottom: 66px;
     }
 
     .hero-grid {
       grid-template-columns: minmax(0, 1fr);
+      gap: 56px;
     }
 
     .hero-copy > p {
       font-size: var(--fz-lg);
+    }
+
+    .button-row {
+      margin-top: 28px;
+
+      a {
+        min-height: 44px;
+        padding: 0 16px;
+      }
     }
 
     .hero-facts {
@@ -602,8 +588,9 @@ export const StyledRencipePage = styled.main`
     }
 
     .floating-note {
-      right: -8px;
+      right: 0;
       bottom: 5%;
+      padding: 11px 14px;
     }
 
     .detail-preview {
@@ -615,6 +602,11 @@ export const StyledRencipePage = styled.main`
       gap: 58px;
     }
 
+    .detail-preview-copy h2,
+    .responsive-preview-copy h2 {
+      font-size: clamp(34px, 10vw, 48px);
+    }
+
     .responsive-preview {
       padding-top: 90px;
       padding-bottom: 90px;
@@ -623,7 +615,7 @@ export const StyledRencipePage = styled.main`
     .responsive-devices {
       grid-template-columns: 1fr;
       align-items: center;
-      width: 80%;
+      width: 100%;
       justify-self: center;
       gap: 38px;
     }
@@ -648,12 +640,46 @@ export const StyledRencipePage = styled.main`
       padding-bottom: 90px;
     }
 
+    .showcase-build-heading h2 {
+      font-size: clamp(38px, 11vw, 54px);
+    }
+
     .technology-list {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      article {
+        min-height: 88px;
+        padding: 14px;
+      }
 
       article:last-child {
-        grid-column: auto;
+        grid-column: span 2;
       }
+
+      span {
+        margin-bottom: 8px;
+      }
+
+      strong {
+        font-size: 16px;
+      }
+    }
+  }
+
+  @media (max-width: 420px) {
+    .button-row {
+      flex-direction: column;
+      align-items: stretch;
+
+      a {
+        justify-content: center;
+      }
+    }
+
+    .hero-facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
     }
   }
 `;

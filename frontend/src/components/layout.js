@@ -10,7 +10,7 @@ const StyledContent = styled.div`
   min-height: 100vh;
 `;
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children, location, showPortfolioChrome = true }) => {
   const isHome = location.pathname === '/';
 
   // Sets target="_blank" rel="noopener noreferrer" on external links
@@ -54,11 +54,11 @@ const Layout = ({ children, location }) => {
           </a>
 
           <StyledContent>
-            <Nav isHome={isHome} />
+            {showPortfolioChrome && <Nav isHome={isHome} />}
 
             <div id="content">
               {children}
-              <Footer />
+              {showPortfolioChrome && <Footer />}
             </div>
           </StyledContent>
         </ThemeProvider>
@@ -70,6 +70,7 @@ const Layout = ({ children, location }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   location: PropTypes.object.isRequired,
+  showPortfolioChrome: PropTypes.bool,
 };
 
 export default Layout;
