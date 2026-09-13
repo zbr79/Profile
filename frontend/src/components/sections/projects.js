@@ -18,33 +18,29 @@ const StyledProjectsSection = styled.section`
 
   .projects-grid {
     ${({ theme }) => theme.mixins.resetList};
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    grid-gap: 16px;
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 100%;
-
-    @media (max-width: 1080px) {
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    }
+    border-top: 1px solid var(--border);
   }
 
   .more-button {
     ${({ theme }) => theme.mixins.button};
-    margin: 60px auto 0;
+    margin: 36px auto 0;
   }
 `;
 
 const StyledProject = styled.li`
   position: relative;
   cursor: default;
-  transition: var(--transition);
+  border-bottom: 1px solid var(--border);
 
   @media (prefers-reduced-motion: no-preference) {
     &:hover,
     &:focus-within {
       .project-inner {
-        transform: translateY(-7px);
+        transform: translateX(8px);
       }
     }
   }
@@ -55,44 +51,49 @@ const StyledProject = styled.li`
   }
 
   .project-inner {
-    ${({ theme }) => theme.mixins.flexBetween};
-    flex-direction: column;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 20px;
     position: relative;
-    height: 100%;
-    padding: 2rem 1.75rem;
-    border-radius: var(--border-radius);
-    background-color: var(--bg-bright);
-    border: 1px solid var(--border);
+    padding: 26px 0;
     transition: var(--transition);
-    overflow: auto;
+  }
 
-    &:hover {
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-    }
+  .project-index {
+    padding-top: 5px;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: var(--fz-xs);
+    letter-spacing: 0.08em;
+  }
+
+  .project-main {
+    min-width: 0;
   }
 
   .project-top {
-    ${({ theme }) => theme.mixins.flexBetween};
-    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 10px;
 
-    .folder {
+    .project-kind {
       color: var(--text-muted);
-      svg {
-        width: 32px;
-        height: 32px;
-      }
+      font-family: var(--font-mono);
+      font-size: var(--fz-xxs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     .project-links {
       display: flex;
       align-items: center;
-      margin-right: -10px;
       color: var(--text-muted);
 
       a {
         ${({ theme }) => theme.mixins.flexCenter};
-        padding: 5px 7px;
+        padding: 4px 0 4px 12px;
 
         &.external {
           svg {
@@ -111,11 +112,11 @@ const StyledProject = styled.li`
   }
 
   .project-title {
-    margin: 0 0 10px;
+    margin: 0 0 8px;
     color: var(--text-primary);
-    font-size: var(--fz-xxl);
+    font-size: clamp(26px, 3vw, 42px);
     font-weight: 600;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.04em;
 
     a {
       position: static;
@@ -134,8 +135,10 @@ const StyledProject = styled.li`
   }
 
   .project-description {
+    max-width: 650px;
     color: var(--text-muted);
-    font-size: 17px;
+    font-size: var(--fz-md);
+    line-height: 1.55;
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
@@ -144,21 +147,33 @@ const StyledProject = styled.li`
 
   .project-tech-list {
     display: flex;
-    align-items: flex-end;
-    flex-grow: 1;
+    gap: 0 16px;
     flex-wrap: wrap;
     padding: 0;
-    margin: 20px 0 0 0;
+    margin: 18px 0 0;
     list-style: none;
 
     li {
+      color: var(--text-primary);
       font-family: var(--font-mono);
       font-size: var(--fz-xxs);
       line-height: 1.75;
+    }
+  }
 
-      &:not(:last-of-type) {
-        margin-right: 15px;
-      }
+  @media (max-width: 768px) {
+    .project-inner {
+      grid-template-columns: 30px minmax(0, 1fr);
+      gap: 14px;
+      padding: 22px 0;
+    }
+
+    .project-title {
+      font-size: clamp(25px, 8vw, 34px);
+    }
+
+    .project-description {
+      font-size: var(--fz-sm);
     }
   }
 `;
@@ -209,52 +224,55 @@ const Projects = () => {
   const firstSix = projects.slice(0, GRID_LIMIT);
   const projectsToShow = showMore ? projects : firstSix;
 
-  const projectInner = node => {
+  const projectInner = (node, index) => {
     const { frontmatter, html } = node;
     const { github, external, title, tech } = frontmatter;
+    const projectPath =
+      title === 'Rencipe' ? '/project/rencipe/' : `/projects/${kebabCase(title)}/`;
 
     return (
       <div className="project-inner">
-        <header>
-          <div className="project-top">
-            <div className="folder">
-              <Icon name="Folder" />
+        <span className="project-index">{String(index + 1).padStart(2, '0')}</span>
+        <div className="project-main">
+          <header>
+            <div className="project-top">
+              <span className="project-kind">Selected project</span>
+              <div className="project-links">
+                {github && (
+                  <a href={github} aria-label="GitHub Link" target="_blank" rel="noreferrer">
+                    <Icon name="GitHub" />
+                  </a>
+                )}
+                {external && (
+                  <a
+                    href={external}
+                    aria-label="External Link"
+                    className="external"
+                    target="_blank"
+                    rel="noreferrer">
+                    <Icon name="External" />
+                  </a>
+                )}
+              </div>
             </div>
-            <div className="project-links">
-              {github && (
-                <a href={github} aria-label="GitHub Link" target="_blank" rel="noreferrer">
-                  <Icon name="GitHub" />
-                </a>
-              )}
-              {external && (
-                <a
-                  href={external}
-                  aria-label="External Link"
-                  className="external"
-                  target="_blank"
-                  rel="noreferrer">
-                  <Icon name="External" />
-                </a>
-              )}
-            </div>
-          </div>
 
-          <h3 className="project-title">
-            <Link to={`/projects/${kebabCase(title)}/`}>{title}</Link>
-          </h3>
+            <h3 className="project-title">
+              <Link to={projectPath}>{title}</Link>
+            </h3>
 
-          <div className="project-description" dangerouslySetInnerHTML={{ __html: html }} />
-        </header>
+            <div className="project-description" dangerouslySetInnerHTML={{ __html: html }} />
+          </header>
 
-        <footer>
-          {tech && (
-            <ul className="project-tech-list">
-              {tech.map((tech, i) => (
-                <li key={i}>{tech}</li>
-              ))}
-            </ul>
-          )}
-        </footer>
+          <footer>
+            {tech && (
+              <ul className="project-tech-list">
+                {tech.map((tech, i) => (
+                  <li key={i}>{tech}</li>
+                ))}
+              </ul>
+            )}
+          </footer>
+        </div>
       </div>
     );
   };
@@ -276,7 +294,7 @@ const Projects = () => {
               <>
                 {projectsToShow &&
                   projectsToShow.map(({ node }, i) => (
-                    <StyledProject key={i}>{projectInner(node)}</StyledProject>
+                    <StyledProject key={i}>{projectInner(node, i)}</StyledProject>
                   ))}
               </>
             ) : (
@@ -294,7 +312,7 @@ const Projects = () => {
                         style={{
                           transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
                         }}>
-                        {projectInner(node)}
+                        {projectInner(node, i)}
                       </StyledProject>
                     </CSSTransition>
                   ))}
