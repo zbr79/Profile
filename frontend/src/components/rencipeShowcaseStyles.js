@@ -15,6 +15,191 @@ export const StyledRencipePage = styled.main`
   background: var(--rencipe-cream);
   color: var(--rencipe-ink);
 
+  .floating-nav-toggle {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 18;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid var(--rencipe-line);
+    border-radius: 50%;
+    background: rgba(255, 253, 249, 0.9);
+    box-shadow: 0 10px 26px rgba(82, 59, 39, 0.12);
+    color: var(--rencipe-ink);
+    font-family: var(--font-mono);
+    font-size: var(--fz-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--rencipe-orange);
+      color: var(--rencipe-orange);
+    }
+  }
+
+  .menu-icon {
+    display: grid;
+    gap: 4px;
+    width: 18px;
+
+    span {
+      display: block;
+      width: 18px;
+      height: 1px;
+      background: currentColor;
+    }
+  }
+
+  .floating-nav-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 19;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: rgba(47, 41, 35, 0.22);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms ease;
+
+    &.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  .floating-nav-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    width: min(340px, 88vw);
+    height: 100dvh;
+    padding: 28px;
+    border: 1px solid var(--rencipe-line);
+    border-width: 0 0 0 1px;
+    border-radius: 24px 0 0 24px;
+    background: var(--rencipe-paper);
+    box-shadow: 0 22px 60px rgba(82, 59, 39, 0.2);
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(100%);
+    transition:
+      transform 220ms ease,
+      opacity 220ms ease,
+      visibility 220ms ease;
+
+    &.is-open {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .floating-nav-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    color: var(--rencipe-muted);
+    font-family: var(--font-mono);
+    font-size: var(--fz-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    .floating-nav-panel-brand {
+      color: var(--rencipe-ink);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 22px;
+      font-style: italic;
+      letter-spacing: -0.04em;
+
+      &:hover,
+      &:focus-visible {
+        color: var(--rencipe-orange);
+      }
+    }
+
+    button {
+      padding: 0 0 0 14px;
+      border: 0;
+      background: transparent;
+      color: var(--rencipe-ink);
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+    }
+  }
+
+  .floating-nav-links {
+    display: grid;
+    gap: 0;
+    padding: 12px 0 4px;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(222, 212, 199, 0.7);
+      color: var(--rencipe-ink);
+      font-size: 17px;
+
+      &:hover,
+      &:focus-visible {
+        color: var(--rencipe-orange);
+      }
+
+    }
+  }
+
+  .floating-nav-external {
+    display: flex;
+    gap: 16px;
+    padding-top: 12px;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+
+      &:hover,
+      &:focus-visible {
+        opacity: 0.62;
+        transform: translateY(-2px);
+      }
+
+      svg {
+        display: block;
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  .showcase-hero,
+  .detail-preview,
+  .responsive-preview,
+  .showcase-build {
+    scroll-margin-top: 32px;
+  }
+
   .showcase-hero {
     width: 100%;
     max-width: none;
@@ -560,6 +745,18 @@ export const StyledRencipePage = styled.main`
   }
 
   @media (max-width: 680px) {
+    .floating-nav-toggle {
+      right: 16px;
+      bottom: 16px;
+      width: 46px;
+      height: 46px;
+    }
+
+    .floating-nav-panel {
+      width: min(320px, 88vw);
+      padding: 20px;
+    }
+
     .showcase-hero {
       padding-top: 48px;
       padding-bottom: 80px;
