@@ -136,9 +136,7 @@ const RencipeShowcase = ({ external, github }) => {
         <div className="hero-grid">
           <Reveal className="hero-copy">
             <span className="eyebrow">Recipe discovery platform</span>
-            <h1>
-              Recipes for <em>real life.</em>
-            </h1>
+            <h1>Discover what to cook next.</h1>
             <p>
               Rencipe brings discovery, browsing, and cooking into one simple path.
             </p>
@@ -196,7 +194,7 @@ const RencipeShowcase = ({ external, github }) => {
 
           <Reveal className="detail-preview-copy" delay={160}>
             <span className="section-kicker">02 / Recipe detail</span>
-            <h2>Open the recipe and cook.</h2>
+            <h2 className="section-title">Open the recipe and cook.</h2>
             <p>
               The detail surface keeps the title, ingredients, steps, metadata, and cooking context
               together so a reader can move from curiosity to action.
@@ -212,7 +210,7 @@ const RencipeShowcase = ({ external, github }) => {
         <div className="responsive-preview-inner">
           <Reveal className="responsive-preview-copy">
             <span className="section-kicker">03 / Browse discovery</span>
-            <h2>Find the next thing to cook.</h2>
+            <h2 className="section-title">Find the next thing to cook.</h2>
             <p>
               Public recipes stay easy to scan with category filters, popular sorting, and a
               focused card grid that works across desktop and mobile.
@@ -258,7 +256,7 @@ const RencipeShowcase = ({ external, github }) => {
         <div className="showcase-build-inner">
           <Reveal className="showcase-build-heading">
             <span className="section-kicker">04 / Build notes</span>
-            <h2>The stack behind Rencipe.</h2>
+            <h2 className="section-title">The stack behind Rencipe.</h2>
             <p>A full-stack recipe app built for public discovery.</p>
           </Reveal>
 

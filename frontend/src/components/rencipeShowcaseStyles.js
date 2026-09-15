@@ -219,6 +219,14 @@ export const StyledRencipePage = styled.main`
       var(--rencipe-cream);
   }
 
+  .section-title {
+    margin: 0 0 22px;
+    color: var(--rencipe-ink);
+    font-size: clamp(32px, 4vw, 54px);
+    letter-spacing: -0.06em;
+    line-height: 0.98;
+  }
+
   .hero-grid {
     display: grid;
     grid-template-columns: minmax(0, 0.82fr) minmax(480px, 1.18fr);
@@ -247,16 +255,10 @@ export const StyledRencipePage = styled.main`
   h1 {
     margin: 0;
     color: var(--rencipe-ink);
-    font-size: clamp(52px, 7vw, 104px);
+    font-size: clamp(46px, 6vw, 84px);
     font-weight: 600;
     letter-spacing: -0.075em;
-    line-height: 0.94;
-
-    em {
-      color: var(--rencipe-orange);
-      font-family: Georgia, 'Times New Roman', serif;
-      font-weight: 400;
-    }
+    line-height: 1.04;
   }
 
   .hero-copy > p {
@@ -405,11 +407,6 @@ export const StyledRencipePage = styled.main`
 
     h2 {
       max-width: 490px;
-      margin: 0 0 22px;
-      color: var(--rencipe-ink);
-      font-size: clamp(36px, 5vw, 68px);
-      letter-spacing: -0.06em;
-      line-height: 0.98;
     }
 
     p {
@@ -483,11 +480,6 @@ export const StyledRencipePage = styled.main`
 
     h2 {
       max-width: 400px;
-      margin: 0 0 22px;
-      color: var(--rencipe-ink);
-      font-size: clamp(32px, 4vw, 54px);
-      letter-spacing: -0.06em;
-      line-height: 0.98;
     }
 
     p {
@@ -600,11 +592,6 @@ export const StyledRencipePage = styled.main`
   .showcase-build-heading {
     h2 {
       max-width: 540px;
-      margin: 0;
-      color: var(--rencipe-ink);
-      font-size: clamp(42px, 6vw, 82px);
-      letter-spacing: -0.07em;
-      line-height: 0.95;
     }
 
     > p {
@@ -799,8 +786,7 @@ export const StyledRencipePage = styled.main`
       gap: 58px;
     }
 
-    .detail-preview-copy h2,
-    .responsive-preview-copy h2 {
+    .section-title {
       font-size: clamp(34px, 10vw, 48px);
     }
 
@@ -835,10 +821,6 @@ export const StyledRencipePage = styled.main`
     .showcase-build {
       padding-top: 90px;
       padding-bottom: 90px;
-    }
-
-    .showcase-build-heading h2 {
-      font-size: clamp(38px, 11vw, 54px);
     }
 
     .technology-list {
