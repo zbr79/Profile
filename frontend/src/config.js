@@ -4,11 +4,15 @@ module.exports = {
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/853493541',
+      url: 'https://github.com/zbr79',
     },
   ],
 
   navLinks: [
+    {
+      name: 'Work',
+      url: '/#projects',
+    },
     {
       name: 'About',
       url: '/#about',
@@ -16,10 +20,6 @@ module.exports = {
     {
       name: 'Education',
       url: '/#education',
-    },
-    {
-      name: 'Work',
-      url: '/#projects',
     },
     {
       name: 'Contact',

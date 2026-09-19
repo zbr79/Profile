@@ -417,19 +417,6 @@ export const StyledRencipePage = styled.main`
       line-height: 1.6;
     }
 
-    .text-link {
-      display: inline-flex;
-      margin-top: 28px;
-      color: var(--rencipe-orange);
-      font-family: var(--font-mono);
-      font-size: var(--fz-xs);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-
-      &:hover {
-        color: var(--rencipe-ink);
-      }
-    }
   }
 
   .detail-preview-visual {
@@ -509,10 +496,9 @@ export const StyledRencipePage = styled.main`
 
   .responsive-devices {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(176px, 240px);
+    grid-template-columns: minmax(0, 1fr);
     align-items: flex-end;
-    column-gap: 0;
-    width: 80%;
+    width: min(88%, 980px);
     justify-self: end;
     min-width: 0;
   }
@@ -533,15 +519,16 @@ export const StyledRencipePage = styled.main`
   }
 
   .responsive-mobile {
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 1;
     display: block;
-    width: 100%;
-    margin-left: clamp(-82px, -4vw, -36px);
+    width: clamp(176px, 27%, 240px);
+    margin-left: auto;
     min-width: 0;
     visibility: visible;
     opacity: 1;
     position: relative;
+    align-self: end;
     z-index: 2;
   }
 
@@ -718,7 +705,23 @@ export const StyledRencipePage = styled.main`
     }
 
     .responsive-devices {
-      grid-template-columns: minmax(0, 1fr) minmax(176px, 184px);
+      grid-template-columns: 1fr;
+      width: 100%;
+    }
+
+    .responsive-mobile {
+      grid-column: 1;
+      grid-row: 1;
+      width: min(184px, 32%);
+      margin-left: auto;
+    }
+
+    .browser-frame,
+    .detail-preview-visual .browser-frame,
+    .responsive-desktop .browser-frame,
+    .phone-frame {
+      transform: none;
+      animation: none;
     }
 
     .showcase-build-inner {
@@ -797,10 +800,10 @@ export const StyledRencipePage = styled.main`
 
     .responsive-devices {
       grid-template-columns: 1fr;
-      align-items: center;
+      align-items: flex-end;
       width: 100%;
       justify-self: center;
-      gap: 38px;
+      gap: 0;
     }
 
     .responsive-desktop {
@@ -811,9 +814,9 @@ export const StyledRencipePage = styled.main`
 
     .responsive-mobile {
       grid-column: 1;
-      grid-row: 2;
+      grid-row: 1;
       width: min(184px, 72%);
-      justify-self: center;
+      justify-self: end;
       margin-left: 0;
       transform: none;
     }

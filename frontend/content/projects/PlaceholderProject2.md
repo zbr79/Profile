@@ -1,13 +1,14 @@
 ---
-date: '2026-08-26'
-title: '[Project Placeholder 2]'
+date: '2026-08-24'
+title: 'Frontend Design Project — Coming Soon'
 github: ''
-external: '#'
+external: ''
 tech:
-  - '[Tech]'
-  - '[Tech]'
-  - '[Tech]'
+  - React
+  - TypeScript
+  - Design Systems
 showInProjects: true
 ---
 
-[Placeholder: 1-2 sentences describing this project. Replace with a real project (e.g. the AI project) when ready.]
+A pure frontend project to sharpen design craft: a data dashboard or animated landing page, built
+for performance, accessibility, and Lighthouse-green scores.

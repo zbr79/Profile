@@ -103,6 +103,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         },
       });
     }
+
+    if (projectSlug === 'provider-usage-monitor') {
+      createPage({
+        path: '/project/provider-usage-monitor',
+        component: projectTemplate,
+        context: {
+          id: node.id,
+        },
+      });
+    }
   });
 
   // Extract tag data from query

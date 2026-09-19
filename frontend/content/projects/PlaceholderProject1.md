@@ -1,13 +1,14 @@
 ---
-date: '2026-08-26'
-title: '[Project Placeholder 1]'
+date: '2026-08-25'
+title: 'AI Project — Coming Soon'
 github: ''
-external: '#'
+external: ''
 tech:
-  - '[Tech]'
-  - '[Tech]'
-  - '[Tech]'
+  - LLM APIs
+  - Structured Output
+  - Human-in-the-loop
 showInProjects: true
 ---
 
-[Placeholder: 1-2 sentences describing this project. Replace with a real project (e.g. Rencipe) when ready.]
+A standalone AI product with structured output and a human review loop. Concept being chosen —
+candidates include a photo-to-recipe card generator and a cited-document Q&A tool.

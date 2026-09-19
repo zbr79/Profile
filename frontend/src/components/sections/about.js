@@ -4,9 +4,10 @@ import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
+import { SplitSection, SplitHeading } from '@components/split';
 
 const StyledAboutSection = styled.section`
-  max-width: 900px;
+  max-width: 1000px;
   padding: 120px 0;
   background-color: var(--bg-alt);
   box-shadow: 0 0 0 100vmax var(--bg-alt);
@@ -14,8 +15,8 @@ const StyledAboutSection = styled.section`
 
   .inner {
     display: grid;
-    grid-template-columns: 3fr 2fr;
-    grid-gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 60px;
 
     @media (max-width: 768px) {
       display: block;
@@ -23,36 +24,39 @@ const StyledAboutSection = styled.section`
   }
 `;
 const StyledText = styled.div`
+  .skills-label {
+    margin: 28px 0 0;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: var(--fz-xs);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
   ul.skills-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 200px));
-    grid-gap: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     padding: 0;
-    margin: 20px 0 0 0;
-    overflow: hidden;
+    margin: 12px 0 0 0;
     list-style: none;
 
     li {
-      position: relative;
-      margin-bottom: 10px;
-      padding-left: 20px;
+      background-color: var(--bg-bright);
+      border: 1px solid var(--border);
+      border-radius: 980px;
+      padding: 5px 14px;
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
-
-      &:before {
-        content: '▹';
-        position: absolute;
-        left: 0;
-        color: var(--accent);
-        font-size: var(--fz-sm);
-        line-height: 12px;
-      }
+      color: var(--text-secondary);
     }
   }
 `;
 const StyledPic = styled.div`
   position: relative;
-  max-width: 300px;
+  max-width: 420px;
+  width: 100%;
 
   @media (max-width: 768px) {
     margin: 50px auto 0;
@@ -100,34 +104,26 @@ const About = () => {
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
-      <h2 className="numbered-heading">About Me</h2>
+      <SplitSection>
+        <SplitHeading>
+          <span className="overline">Who I Am</span>
+          <h2>About Me</h2>
+        </SplitHeading>
 
-      <div className="inner">
+        <div className="inner">
         <StyledText>
-          <div>
-            <p>
-              Hello! I'm Andy, a software engineer who enjoys building complete web applications —
-              from database and API design to the pixels on screen. My sweet spot is full-stack
-              JavaScript/TypeScript development with React and Node.js, where I get to care about
-              both engineering quality and user experience.
-            </p>
+          <p>
+            I'm Andy, a software engineer based in Fullerton, CA. I build complete web
+            applications — from database and API design to the pixels on screen.
+          </p>
 
-            <p>
-              My journey started at Cal State Fullerton, where I earned a B.S. in Computer Science
-              in 2023. Since then I've built and shipped real products: a bilingual recipe platform
-              (Next.js, Express, MongoDB, Cloudinary) and real-time multiplayer browser games with
-              Three.js and WebSockets — plus production deployment work involving nginx, TLS, and
-              process management.
-            </p>
+          <p>
+            I've shipped a bilingual recipe platform and real-time browser games with Next.js,
+            React, Express, and MongoDB. I finished my M.S. in Software Engineering at Cal State
+            Fullerton in 2026 and I'm now looking for a full-stack or frontend role.
+          </p>
 
-            <p>
-              I earned my M.S. in Software Engineering from Cal State Fullerton in 2026 and am now
-              focused on sharpening my frontend design craft. I'm looking for a full-stack or
-              frontend engineering role where I can build products people use every day.
-            </p>
-
-            <p>Here are a few technologies I’ve been working with recently:</p>
-          </div>
+          <h4 className="skills-label">Technologies I work with</h4>
 
           <ul className="skills-list">
             {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
@@ -139,14 +135,15 @@ const About = () => {
             <StaticImage
               className="img"
               src="../../images/me.jpg"
-              width={500}
+              width={600}
               quality={95}
               formats={['AUTO', 'WEBP', 'AVIF']}
               alt="Headshot"
             />
           </div>
         </StyledPic>
-      </div>
+        </div>
+      </SplitSection>
     </StyledAboutSection>
   );
 };

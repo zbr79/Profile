@@ -228,7 +228,11 @@ const Projects = () => {
     const { frontmatter, html } = node;
     const { github, external, title, tech } = frontmatter;
     const projectPath =
-      title === 'Rencipe' ? '/project/rencipe/' : `/projects/${kebabCase(title)}/`;
+      title === 'Rencipe'
+        ? '/project/rencipe/'
+        : title === 'Provider Usage Monitor'
+          ? '/project/provider-usage-monitor'
+          : `/projects/${kebabCase(title)}/`;
 
     return (
       <div className="project-inner">

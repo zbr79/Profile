@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Layout } from '@components';
 import { Icon } from '@components/icons';
+import ProviderUsageShowcase from '@components/ProviderUsageShowcase';
 import RencipeShowcase from '@components/RencipeShowcase';
 
 const StyledProjectContainer = styled.main`
@@ -88,13 +89,16 @@ const ProjectTemplate = ({ data, location }) => {
   const { frontmatter, html } = data.markdownRemark;
   const { title, date, tech, github, external } = frontmatter;
   const isRencipe = title === 'Rencipe';
+  const isProviderUsageMonitor = title === 'Provider Usage Monitor';
 
   return (
-    <Layout location={location} showPortfolioChrome={!isRencipe}>
+    <Layout location={location} showPortfolioChrome={!isRencipe && !isProviderUsageMonitor}>
       <Helmet title={title} />
 
       {isRencipe ? (
         <RencipeShowcase external={external} github={github} />
+      ) : isProviderUsageMonitor ? (
+        <ProviderUsageShowcase github={github} />
       ) : (
         <StyledProjectContainer>
           <Link className="breadcrumb" to="/archive">

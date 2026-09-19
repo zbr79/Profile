@@ -6,9 +6,10 @@ import { srConfig } from '@config';
 import { KEY_CODES } from '@utils';
 import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
+import { SplitSection, SplitHeading } from '@components/split';
 
 const StyledJobsSection = styled.section`
-  max-width: 700px;
+  max-width: 900px;
 
   .inner {
     display: flex;
@@ -247,9 +248,13 @@ const Jobs = () => {
 
   return (
     <StyledJobsSection id="education" ref={revealContainer}>
-      <h2 className="numbered-heading">Education</h2>
+      <SplitSection>
+        <SplitHeading>
+          <span className="overline">Background</span>
+          <h2>Education</h2>
+        </SplitHeading>
 
-      <div className="inner">
+        <div className="inner">
         <StyledTabList role="tablist" aria-label="Education tabs" onKeyDown={e => onKeyDown(e)}>
           {jobsData &&
             jobsData.map(({ node }, i) => {
@@ -305,7 +310,8 @@ const Jobs = () => {
               );
             })}
         </StyledTabPanels>
-      </div>
+        </div>
+      </SplitSection>
     </StyledJobsSection>
   );
 };

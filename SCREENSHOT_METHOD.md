@@ -93,3 +93,10 @@ rules to the public recipe detail surface:
   showcase frame.
 - Labeled as a simplified preview because the browser service could not transfer its
   stylesheet-backed capture into the local project.
+
+`frontend/src/images/rencipe-homepage-mobile-simplified.png` is the responsive companion:
+
+- Same guest homepage flow and verified recipe names as the desktop preview.
+- Mobile app bar, featured recipe, two-column cards, and bottom navigation reflect the
+  deployed mobile layout.
+- Food-image areas remain neutralized and the asset is labeled as a simplified preview.

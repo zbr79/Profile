@@ -43,9 +43,10 @@ npm run build   # outputs to public/, nginx serves it automatically
 ### Content state
 
 - Experience tab section repurposed as **Education** (nav renamed): MS Software Engineering (CSU Fullerton, conferred May 2026, GPA 3.80) + BS Computer Science (CSU Fullerton, Summer 2023) — real coursework bullets filled
-- Projects grid shows placeholder entries (`content/projects/`) until real content is ready
-- Design: Apple-style black & white light theme (reskin complete — white/#f5f5f7, system fonts, pill buttons, no side rails, no numbered headings). Accent color decision deferred
-- Placeholders to fill: photo (`me.jpg`), resume PDF (later), projects grid content (Rencipe + AI project)
+- Page order: Hero → Projects → About → Education → Contact (projects first for recruiter scan)
+- Projects grid: Rencipe (real card, GitHub link) + 2 "Coming Soon" slots (AI project, frontend design project) — grid designed for 3–5 cards, Show More hidden until 6+
+- Design: Apple-style black & white light theme (reskin complete — white/#f5f5f7 bands, system fonts, pill buttons, no side rails, no numbered headings). Accent color decision deferred
+- Placeholders to fill: photo (`me.jpg`), resume PDF (later), Rencipe live demo URL
 - Deleted from template: her jobs, featured section, 34 projects, blog posts (blog kept empty), resume.pdf, slides, photos/favicons, GA, logo letter
 - `gatsby-node.js` has `createSchemaCustomization` so the build works with an empty blog
 - Placeholder images generated with sharp (me.jpg, logo.png, og.png)
@@ -111,15 +112,20 @@ Job-readiness plan — 4 pieces, built in order. Total target: ~5 weeks.
 - [ ] Input validation + CORS/rate-limit cleanup
 - [ ] Deploy publicly with live demo
 
-### 4. Standalone AI project (~1 week) — pick later
+### 4. Standalone AI project — DONE (built early, user decision 2026-08-27)
 
-Rules: structured output, human edit/verify loop, clear single job (NOT a chatbot wrapper). Must be standalone (NOT a Rencipe sub-project).
+**GemChat** — github.com/zbr79/gemini-chat (built at `/home/ubuntu/gemini-chat`, live on VM via PM2 port 3001, running newest build). Next.js 16 + React 19, Gemini free tier (`gemini-2.5-flash`), streaming text chat + image upload (vision). No auth/DB/persistence (v1). Apple-style b/w UI matching profile site.
 
-Candidates:
-- [ ] SnapRecipe — photo → AI-generated recipe card + share link (most demo-able)
-- [ ] Chat-with-documents — RAG Q&A with cited sources (best for showing RAG)
-- [ ] Inbox Triager — messy text → structured extraction with confidence + edit UI
-- [ ] Structured summarizer — long text → headline/bullets/actions, streaming
+Note: user explicitly chose a chatbot over the "no chatbot wrapper" rule; differentiation = vision + streaming + deployed. Original rules (structured output, human edit loop) dropped with user's approval.
+
+Remaining v1 to-dos (owner actions):
+- [x] Add real `GEMINI_API_KEY` to `/home/ubuntu/gemini-chat/.env` (done 2026-08-27), `pm2 restart gemini-chat`
+- [x] DNS record for a public subdomain → nginx + certbot (done: https://chatbot.renstoolbox.com)
+
+Dropped candidates:
+- [~] SnapRecipe — photo → AI recipe card (superseded by GemChat image chat)
+- [~] Chat-with-documents — RAG Q&A (kept as possible GemChat v2 upgrade)
+- [~] Inbox Triager, Structured summarizer — dropped
 
 ### Supporting layer (as needed, not projects)
 
@@ -144,4 +150,4 @@ Site first (closest to done) → frontend project (design skill needed BEFORE re
 1. Finish profile site placeholders (roadmap §1)
 2. Pick + scope the pure frontend project
 3. Plan Rencipe UI redesign
-4. Pick the AI project
+4. GemChat: wire real API key + public subdomain (needs owner)

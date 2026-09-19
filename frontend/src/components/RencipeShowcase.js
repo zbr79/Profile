@@ -1,21 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'gatsby';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useInView } from '@hooks';
 import productScreenshot from '@images/rencipe-homepage-simplified.png';
 import recipeDetailScreenshot from '@images/rencipe-recipe-detail-focused.png';
 import RencipeIcon from '@components/icons/rencipe';
-import GitHubBrand from '@components/icons/github-brand';
+import ProjectShowcaseNav from '@components/ProjectShowcaseNav';
 import { StyledRencipePage } from './rencipeShowcaseStyles';
 
 const browseDesktopScreenshot = '/rencipe-browse-desktop-simplified.svg';
 const browseMobileScreenshot = '/rencipe-browse-mobile-simplified.svg';
-const sectionLinks = [
-  { id: 'overview', label: 'Overview' },
-  { id: 'detail', label: 'Recipe detail' },
-  { id: 'responsive', label: 'Responsive' },
-  { id: 'stack', label: 'Stack' },
-];
 
 const Reveal = ({ children, className = '', delay = 0 }) => {
   const [ref, isVisible] = useInView();
@@ -38,99 +31,26 @@ Reveal.propTypes = {
 
 const RencipeShowcase = ({ external, github }) => {
   const liveUrl = external || 'https://rencipe.renstoolbox.com/';
-  const [isNavOpen, setIsNavOpen] = useState(false);
-
-  const closeNav = () => setIsNavOpen(false);
-
-  useEffect(() => {
-    if (!isNavOpen) {
-      return undefined;
-    }
-
-    const handleKeyDown = event => {
-      if (event.key === 'Escape') {
-        closeNav();
-      }
-    };
-
-    document.body.style.overflow = 'hidden';
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = '';
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isNavOpen]);
 
   return (
     <StyledRencipePage>
-      <button
-        className={`floating-nav-toggle ${isNavOpen ? 'is-open' : ''}`}
-        type="button"
-        aria-expanded={isNavOpen}
-        aria-controls="floating-project-menu"
-        aria-label={isNavOpen ? 'Close project navigation' : 'Open project navigation'}
-        onClick={() => setIsNavOpen(open => !open)}>
-        <span className="menu-icon" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-        </span>
-      </button>
-
-      <button
-        className={`floating-nav-overlay ${isNavOpen ? 'is-open' : ''}`}
-        type="button"
-        aria-label="Close project navigation"
-        tabIndex={isNavOpen ? 0 : -1}
-        onClick={closeNav}
+      <ProjectShowcaseNav
+        prefix="floating-nav"
+        menuId="floating-project-menu"
+        menuLabel="Rencipe project menu"
+        brand="Rencipe"
+        brandHref="/"
+        sectionLinks={[
+          { id: 'overview', label: 'Overview' },
+          { id: 'detail', label: 'Recipe detail' },
+          { id: 'responsive', label: 'Responsive' },
+          { id: 'stack', label: 'Stack' },
+        ]}
+        external={liveUrl}
+        externalIcon={<RencipeIcon />}
+        github={github}
+        iconClassName="menu-icon"
       />
-
-      <aside
-        id="floating-project-menu"
-        className={`floating-nav-panel ${isNavOpen ? 'is-open' : ''}`}
-        aria-label="Rencipe project menu"
-        aria-hidden={!isNavOpen}>
-        <div className="floating-nav-panel-header">
-          <Link className="floating-nav-panel-brand" to="/" onClick={closeNav}>
-            Rencipe
-          </Link>
-          <button type="button" aria-label="Close project navigation" onClick={closeNav}>
-            ×
-          </button>
-        </div>
-
-        <nav className="floating-nav-links" aria-label="Project sections">
-          {sectionLinks.map(({ id, label }) => (
-            <a key={id} href={`#${id}`} onClick={closeNav}>
-              {label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="floating-nav-external">
-          <a
-            href={liveUrl}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Open live demo"
-            title="Live demo"
-            onClick={closeNav}>
-            <RencipeIcon />
-          </a>
-          {github && (
-            <a
-              href={github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Open GitHub source"
-              title="GitHub source"
-              onClick={closeNav}>
-              <GitHubBrand />
-            </a>
-          )}
-        </div>
-      </aside>
 
       <section className="showcase-hero" id="overview">
         <div className="hero-grid">
@@ -199,9 +119,6 @@ const RencipeShowcase = ({ external, github }) => {
               The detail surface keeps the title, ingredients, steps, metadata, and cooking context
               together so a reader can move from curiosity to action.
             </p>
-            <a className="text-link" href={liveUrl} target="_blank" rel="noreferrer">
-              View the live recipe <span aria-hidden="true">↗</span>
-            </a>
           </Reveal>
         </div>
       </section>
