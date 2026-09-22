@@ -5,7 +5,7 @@ module.exports = {
     title: 'Andy Ren',
     description:
       'Andy Ren is a software engineer based in Fullerton, CA, building full-stack web applications with Next.js, React, Node.js, and MongoDB.',
-    siteUrl: 'https://profile.renstoolbox.com', // No trailing slash allowed!
+    siteUrl: 'https://profile.rwkit.com', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '',
   },

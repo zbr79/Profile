@@ -2,7 +2,7 @@
 date: '2026-08-26'
 title: 'Rencipe'
 github: 'https://github.com/zbr79/Rencipe'
-external: 'https://rencipe.renstoolbox.com/'
+external: 'https://rencipe.rwkit.com/'
 tech:
   - Next.js
   - React

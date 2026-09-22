@@ -1,6 +1,6 @@
 # Profile
 
-Service for `profile.renstoolbox.com` — Gatsby static frontend + Express backend behind nginx.
+Service for `profile.rwkit.com` — Gatsby static frontend + Express backend behind nginx.
 
 Based on the Brittany Chiang v4 portfolio template (Gatsby 3 / styled-components).
 
@@ -61,7 +61,7 @@ pm2 start ecosystem.config.js
 
 ## nginx
 
-Full protected config: `nginx/profile.renstoolbox.com.conf`
+Full protected config: `nginx/profile.rwkit.com.conf`
 Rate-limit zones (required): `nginx/nginx.conf.rate-limit.snippet.txt`
 
 Protections included:
@@ -77,31 +77,31 @@ Protections included:
 
 ### Deploy steps
 
-1. **DNS:** `A` record `profile.renstoolbox.com` → server public IP
+1. **DNS:** `A` record `profile.rwkit.com` → server public IP
 2. **Rate-limit zones:** add lines from `nginx/nginx.conf.rate-limit.snippet.txt`
    to the `http {}` block of `/etc/nginx/nginx.conf` (+ `server_tokens off;`)
 3. **Install config:**
 
    ```bash
-   sudo cp nginx/profile.renstoolbox.com.conf /etc/nginx/sites-available/profile.renstoolbox.com
-   sudo ln -s /etc/nginx/sites-available/profile.renstoolbox.com \
-              /etc/nginx/conf.d/profile.renstoolbox.com.conf
+   sudo cp nginx/profile.rwkit.com.conf /etc/nginx/sites-available/profile.rwkit.com
+   sudo ln -s /etc/nginx/sites-available/profile.rwkit.com \
+              /etc/nginx/conf.d/profile.rwkit.com.conf
    ```
 
 4. **Cert:**
 
    ```bash
-   sudo certbot certonly --webroot -w /var/www/acme -d profile.renstoolbox.com
+   sudo certbot certonly --webroot -w /var/www/acme -d profile.rwkit.com
    sudo nginx -t && sudo systemctl reload nginx
    ```
 
 5. **Verify:**
 
    ```bash
-   curl -I https://profile.renstoolbox.com/                    # 200
-   curl -o /dev/null -w '%{http_code}\n' https://profile.renstoolbox.com/phpmyadmin   # 000 (444)
-   curl -o /dev/null -w '%{http_code}\n' 'https://profile.renstoolbox.com/?x=base64'  # 403
-   curl -s https://profile.renstoolbox.com/api/health          # {"status":"ok",...}
+   curl -I https://profile.rwkit.com/                    # 200
+   curl -o /dev/null -w '%{http_code}\n' https://profile.rwkit.com/phpmyadmin   # 000 (444)
+   curl -o /dev/null -w '%{http_code}\n' 'https://profile.rwkit.com/?x=base64'  # 403
+   curl -s https://profile.rwkit.com/api/health          # {"status":"ok",...}
    ```
 
 ## Notes

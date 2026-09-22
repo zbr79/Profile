@@ -30,7 +30,7 @@ Reveal.propTypes = {
 };
 
 const RencipeShowcase = ({ external, github }) => {
-  const liveUrl = external || 'https://rencipe.renstoolbox.com/';
+  const liveUrl = external || 'https://rencipe.rwkit.com/';
 
   return (
     <StyledRencipePage>

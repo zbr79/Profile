@@ -6,7 +6,7 @@ Read this first to catch up. Companion file: `EXPERIENCES.md` (append-only probl
 
 ## Current state of this repo (`/home/ubuntu/Profile`, github.com/zbr79/Profile)
 
-Live at: **https://profile.renstoolbox.com** (served from this VM, public IP `170.9.60.63`, ARM64/aarch64)
+Live at: **https://profile.rwkit.com** (served from this VM, public IP `170.9.60.63`, ARM64/aarch64)
 
 ### Stack
 
@@ -14,9 +14,9 @@ Live at: **https://profile.renstoolbox.com** (served from this VM, public IP `17
 |---|---|---|
 | Frontend | Gatsby 3 (React 17, styled-components), static build | `frontend/` |
 | Backend | Express 5 (TypeScript) | `backend/` (port 5000) |
-| Serving | nginx serves `frontend/public` statically; `/api/` → 127.0.0.1:5000 | `/etc/nginx/sites-available/profile.renstoolbox.com` |
+| Serving | nginx serves `frontend/public` statically; `/api/` → 127.0.0.1:5000 | `/etc/nginx/sites-available/profile.rwkit.com` |
 | Process | PM2 `profile-backend` only (frontend is static, no runtime) | `ecosystem.config.js` |
-| TLS | Let's Encrypt, certbot webroot | `/etc/letsencrypt/live/profile.renstoolbox.com/` |
+| TLS | Let's Encrypt, certbot webroot | `/etc/letsencrypt/live/profile.rwkit.com/` |
 
 The frontend is a copy of **Brittany Chiang's portfolio template** (`github.com/bchiang7/v4`, Gatsby 3). We use it as a learning target for CSS/design craft. Plan is to modernize later (Next.js + TypeScript is the eventual target; Gatsby is dead-ended).
 
@@ -68,7 +68,7 @@ Gaps to fix (the upgrade project): UI redesign (main complaint), no auth (jwt un
 
 - Public IP: 170.9.60.63 (private 10.0.0.253), ARM64, Ubuntu
 - GitHub auth on VM: account **AndyR79S** (token via GIT_ASKPASS); has collaborator access to zbr79/Profile
-- DNS: `profile.renstoolbox.com` → 170.9.60.63 (Namecheap)
+- DNS: `profile.rwkit.com` → 170.9.60.63 (Namecheap)
 - nginx protections verified: 444 exploit-path blocks, 403 query-string filter, rate limits (20r/s general, 10r/m on `/api/auth`), HSTS + security headers, method allowlist, `client_max_body_size 20M`, `/static/` immutable cache
 - NOTE: location-level `add_header` overrides server-level ones — repeat headers per-location
 - Node versions: system v22; nvm has v16.20.2 (Gatsby builds)

@@ -63,7 +63,7 @@ working UI remains available through the live-product link.
 - [ ] The screenshot is labeled or implemented as static presentation content.
 - [ ] The live-demo link opens the working application.
 - [ ] `NODE_OPTIONS=--openssl-legacy-provider npm run build` passes in `frontend/`.
-- [ ] `curl -I https://profile.renstoolbox.com/project/rencipe` returns HTTP 200.
+- [ ] `curl -I https://profile.rwkit.com/project/rencipe` returns HTTP 200.
 - [ ] A cache-busted browser check confirms the latest asset and layout.
 
 ## Rencipe example

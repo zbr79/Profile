@@ -1688,3 +1688,54 @@ Companion file: `PORTFOLIO_PLAN.md` (read-first handoff + roadmap).
 
 ### Disproved
 - The presentation needed the decorative offset backplate; the simpler gray stage provides enough separation.
+
+---
+
+## 2026-09-22 — rwkit.com migration preparation
+
+### Solved
+- Updated the Profile site metadata, Rencipe links, deployment documentation, and nginx template to use `rwkit.com`.
+- Staged new nginx vhosts for the Profile, Agent, InChat, Rencipe, and apex redirect hostnames without activating them before certificates exist.
+- Updated Agent and InChat deployment documentation to their new hostnames.
+
+### Unresolved
+- DNS records for `rwkit.com` and its application subdomains have not been added yet, so certificates and live nginx activation remain pending.
+- The old `renstoolbox.com` hostnames remain active until the new endpoints pass validation.
+- Baizhan was excluded after confirming its public DNS points to `147.224.13.78`, not this machine; its local frontend/backend routing is not part of this migration.
+
+### Disproved
+- The first Profile build attempt was not a source failure; it used the system Node 24 runtime. Rebuilding with the project-required Node 16 runtime completed successfully.
+
+---
+
+## 2026-09-21 — rwkit.com application cutover
+
+### Solved
+- Added DNS for `rwkit.com`, `www`, `agent`, `inschat`, `profile`, and `rencipe`, all targeting `170.9.60.63`.
+- Issued Let's Encrypt certificates for the apex and four migrated application hostnames.
+- Activated nginx vhosts for Agent, InChat, Profile, Rencipe, and the apex redirect to Profile.
+- Moved Rencipe's shared rate-limit and WebSocket directives into one global nginx include so old and new vhosts could coexist without duplicate-directive errors.
+- Verified HTTPS roots, Profile and Rencipe health routes, InChat CORS preflight, Agent routes, TLS certificates, and the apex redirects.
+- Left Baizhan unchanged because its public DNS points to `147.224.13.78`, not this machine.
+
+### Unresolved
+- The four original `renstoolbox.com` vhosts, DNS records, and certificates remain temporarily active until the confirmed cutover cleanup is completed.
+
+### Disproved
+- The first nginx activation attempt was not a certificate or routing failure; Rencipe's duplicated global directives were the cause. Centralizing them fixed nginx validation and reload.
+
+---
+
+## 2026-09-21 — retired original application URLs
+
+### Solved
+- Disabled the original Agent, InChat, Profile, and Rencipe nginx vhosts while preserving rollback copies as `.conf.disabled`.
+- Removed their old Let's Encrypt certificates and renewal entries.
+- Reloaded nginx successfully; the new `rwkit.com` vhosts remain active.
+- Kept Baizhan's original nginx configuration, DNS, and certificate untouched.
+
+### Unresolved
+- The four old DNS A records still point to this server and should be removed at the registrar to complete retirement.
+
+### Disproved
+- The original HTTPS URLs no longer present their original certificates or applications after nginx retirement.
