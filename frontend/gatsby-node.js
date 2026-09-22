@@ -113,6 +113,26 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         },
       });
     }
+
+    if (projectSlug === 'ins-chat') {
+      createPage({
+        path: '/project/inschat/',
+        component: projectTemplate,
+        context: {
+          id: node.id,
+        },
+      });
+    }
+
+    if (projectSlug === 'agent') {
+      createPage({
+        path: '/project/agent/',
+        component: projectTemplate,
+        context: {
+          id: node.id,
+        },
+      });
+    }
   });
 
   // Extract tag data from query

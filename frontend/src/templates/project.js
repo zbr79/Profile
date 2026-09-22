@@ -5,6 +5,8 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Layout } from '@components';
 import { Icon } from '@components/icons';
+import AgentShowcase from '@components/AgentShowcase';
+import InsChatShowcase from '@components/InsChatShowcase';
 import ProviderUsageShowcase from '@components/ProviderUsageShowcase';
 import RencipeShowcase from '@components/RencipeShowcase';
 
@@ -90,15 +92,23 @@ const ProjectTemplate = ({ data, location }) => {
   const { title, date, tech, github, external } = frontmatter;
   const isRencipe = title === 'Rencipe';
   const isProviderUsageMonitor = title === 'Provider Usage Monitor';
+  const isInsChat = title === 'InsChat';
+  const isAgent = title === 'Agent';
 
   return (
-    <Layout location={location} showPortfolioChrome={!isRencipe && !isProviderUsageMonitor}>
+    <Layout
+      location={location}
+      showPortfolioChrome={!isRencipe && !isProviderUsageMonitor && !isInsChat && !isAgent}>
       <Helmet title={title} />
 
       {isRencipe ? (
         <RencipeShowcase external={external} github={github} />
       ) : isProviderUsageMonitor ? (
         <ProviderUsageShowcase github={github} />
+      ) : isInsChat ? (
+        <InsChatShowcase external={external} github={github} />
+      ) : isAgent ? (
+        <AgentShowcase external={external} github={github} />
       ) : (
         <StyledProjectContainer>
           <Link className="breadcrumb" to="/archive">

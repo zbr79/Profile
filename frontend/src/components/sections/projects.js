@@ -227,12 +227,16 @@ const Projects = () => {
   const projectInner = (node, index) => {
     const { frontmatter, html } = node;
     const { github, external, title, tech } = frontmatter;
-    const projectPath =
-      title === 'Rencipe'
-        ? '/project/rencipe/'
-        : title === 'Provider Usage Monitor'
-          ? '/project/provider-usage-monitor'
-          : `/projects/${kebabCase(title)}/`;
+    let projectPath = `/projects/${kebabCase(title)}/`;
+    if (title === 'Rencipe') {
+      projectPath = '/project/rencipe/';
+    } else if (title === 'Provider Usage Monitor') {
+      projectPath = '/project/provider-usage-monitor';
+    } else if (title === 'InsChat') {
+      projectPath = '/project/inschat/';
+    } else if (title === 'Agent') {
+      projectPath = '/project/agent/';
+    }
 
     return (
       <div className="project-inner">
