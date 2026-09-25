@@ -2589,3 +2589,21 @@ Companion file: `PORTFOLIO_PLAN.md` (read-first handoff + roadmap).
 ### Disproved
 
 - The previous empty General welcome screen did not demonstrate the completed General chat workflow.
+
+---
+
+## 2026-09-24 — InsChat section 03 English Records capture
+
+### Solved
+
+- Cleared the local Records demo state and reloaded the example dataset for the showcase capture.
+- Replaced the Chinese meal labels with English labels while preserving the real Records page, insights cards, glucose chart, and timeline.
+- Replaced section 03’s asset with a full 1440×900 Light-theme Records capture.
+
+### Unresolved
+
+- None for the section 03 showcase screenshot.
+
+### Disproved
+
+- Changing only the interface language did not translate the existing hardcoded demo meal names.
