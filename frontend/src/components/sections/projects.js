@@ -233,7 +233,7 @@ const Projects = () => {
     } else if (title === 'Provider Usage Monitor') {
       projectPath = '/project/provider-usage-monitor';
     } else if (title === 'InsChat') {
-      projectPath = '/project/inschat/';
+      projectPath = '/project/inschat';
     } else if (title === 'Agent') {
       projectPath = '/project/agent/';
     }

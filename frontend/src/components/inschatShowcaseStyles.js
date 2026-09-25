@@ -696,4 +696,997 @@ export const StyledInsChatPage = styled.main`
       }
     }
   }
+
+  .inschat-hero {
+    padding: clamp(90px, 11vw, 150px) clamp(25px, 8vw, 150px) 120px;
+    background:
+      radial-gradient(circle at 50% 8%, rgba(79, 141, 247, 0.18), transparent 34%),
+      #111318;
+    color: #f6f7f9;
+  }
+
+  .inschat-hero-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(48px, 7vw, 84px);
+    max-width: 1080px;
+    text-align: center;
+  }
+
+  .inschat-hero-copy {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .inschat-hero .inschat-eyebrow {
+    color: #86aefc;
+  }
+
+  .inschat-hero h1 {
+    max-width: 820px;
+    color: #f6f7f9;
+  }
+
+  .inschat-hero .inschat-hero-copy > p {
+    max-width: 620px;
+    margin-right: auto;
+    margin-left: auto;
+    color: #b8c0cd;
+  }
+
+  .inschat-hero .inschat-button-row {
+    justify-content: center;
+  }
+
+  .inschat-hero .inschat-button-row a {
+    border-color: rgba(246, 247, 249, 0.5);
+    color: #f6f7f9;
+  }
+
+  .inschat-hero .inschat-button-row a:hover,
+  .inschat-hero .inschat-button-row a:focus-visible {
+    border-color: #f6f7f9;
+    background: #f6f7f9;
+    color: #111318;
+  }
+
+  .inschat-hero .inschat-button-row .primary {
+    border-color: var(--inschat-blue);
+    background: var(--inschat-blue);
+    color: #ffffff;
+  }
+
+  .inschat-hero .inschat-button-row .primary:hover,
+  .inschat-hero .inschat-button-row .primary:focus-visible {
+    border-color: #75a4ff;
+    background: #75a4ff;
+    color: #111318;
+  }
+
+  .inschat-hero .inschat-hero-facts {
+    max-width: 820px;
+    margin-right: auto;
+    margin-left: auto;
+    color: #9fa8b7;
+    text-align: left;
+  }
+
+  .inschat-hero .inschat-hero-facts div {
+    border-color: rgba(246, 247, 249, 0.2);
+  }
+
+  .inschat-hero .inschat-hero-facts strong {
+    color: #f6f7f9;
+  }
+
+  .inschat-hero-grid {
+    grid-template-columns: minmax(300px, 0.75fr) minmax(520px, 1.25fr);
+    gap: clamp(56px, 8vw, 120px);
+    max-width: 1280px;
+    text-align: left;
+  }
+
+  .inschat-hero-copy {
+    max-width: 560px;
+    margin: 0;
+  }
+
+  .inschat-hero h1 {
+    max-width: 600px;
+  }
+
+  .inschat-hero .inschat-hero-copy > p {
+    max-width: 480px;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .inschat-hero .inschat-button-row {
+    justify-content: flex-start;
+  }
+
+  .inschat-hero-visual {
+    min-width: 0;
+  }
+
+  .inschat-hero .inschat-home-presentation {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .inschat-hero .inschat-presentation-header {
+    color: #86aefc;
+    text-align: left;
+  }
+
+  .inschat-hero .inschat-presentation-stage {
+    border-color: rgba(246, 247, 249, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .inschat-hero .inschat-real-screenshot {
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
+  }
+
+  .inschat-hero .inschat-presentation figcaption {
+    text-align: left;
+  }
+
+  .inschat-hero .inschat-presentation figcaption strong {
+    color: #f6f7f9;
+  }
+
+  .inschat-hero .inschat-presentation figcaption span {
+    color: #9fa8b7;
+  }
+
+  @media (max-width: 1100px) {
+    .inschat-hero-grid {
+      grid-template-columns: 1fr;
+      max-width: 820px;
+      text-align: center;
+    }
+
+    .inschat-hero-copy {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .inschat-hero .inschat-hero-copy > p {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .inschat-hero .inschat-button-row {
+      justify-content: center;
+    }
+
+    .inschat-hero-visual {
+      width: min(100%, 820px);
+      margin: 0 auto;
+    }
+  }
+
+  .inschat-cta-section {
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0 0 0 calc(50% - 50vw);
+    padding: clamp(96px, 12vw, 160px) clamp(25px, 8vw, 150px);
+    background:
+      radial-gradient(circle at 50% 0%, rgba(79, 141, 247, 0.2), transparent 34%),
+      #111318;
+    color: #f6f7f9;
+    scroll-margin-top: 32px;
+  }
+
+  .inschat-cta-content {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .inschat-cta-content .inschat-kicker {
+    color: #86aefc;
+  }
+
+  .inschat-cta-content h2 {
+    max-width: 720px;
+    color: #f6f7f9;
+  }
+
+  .inschat-cta-content p {
+    max-width: 560px;
+    margin: 28px auto 0;
+    color: #b8c0cd;
+    font-size: var(--fz-lg);
+    line-height: 1.6;
+  }
+
+  .inschat-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    margin-top: 34px;
+    padding: 0 22px;
+    border: 1px solid var(--inschat-blue);
+    border-radius: 999px;
+    background: var(--inschat-blue);
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: var(--fz-xs);
+  }
+
+  .inschat-cta-button:hover,
+  .inschat-cta-button:focus-visible {
+    border-color: #75a4ff;
+    background: #75a4ff;
+    color: #111318;
+  }
+
+  @media (max-width: 560px) {
+    .inschat-hero .inschat-hero-facts {
+      text-align: left;
+    }
+
+    .inschat-cta-section {
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+  }
+
+  .inschat-workflow-section,
+  .inschat-build-section {
+    background:
+      radial-gradient(circle at 100% 0%, rgba(79, 141, 247, 0.12), transparent 30%),
+      #171a21;
+    color: #f6f7f9;
+  }
+
+  .inschat-workflow-section h2,
+  .inschat-build-section h2 {
+    color: #f6f7f9;
+  }
+
+  .inschat-workflow-section .inschat-section-copy > p,
+  .inschat-build-section .inschat-build-copy > p {
+    color: #b8c0cd;
+  }
+
+  .inschat-workflow-section .inschat-kicker,
+  .inschat-build-section .inschat-kicker {
+    color: #86aefc;
+  }
+
+  .inschat-workflow-section .inschat-presentation-header {
+    color: #86aefc;
+  }
+
+  .inschat-workflow-section .inschat-presentation-stage {
+    border-color: rgba(246, 247, 249, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .inschat-workflow-section .inschat-real-screenshot {
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
+  }
+
+  .inschat-workflow-section .inschat-presentation figcaption strong {
+    color: #f6f7f9;
+  }
+
+  .inschat-workflow-section .inschat-presentation figcaption span,
+  .inschat-workflow-section .inschat-feature-list span {
+    color: #9fa8b7;
+  }
+
+  .inschat-workflow-section .inschat-feature-list article {
+    border-color: rgba(246, 247, 249, 0.16);
+  }
+
+  .inschat-workflow-section .inschat-feature-list strong {
+    color: #f6f7f9;
+  }
+
+  .inschat-responsive-section {
+    background:
+      radial-gradient(circle at 0% 50%, rgba(79, 141, 247, 0.14), transparent 32%),
+      #f1f5fb;
+  }
+
+  .inschat-responsive-inner {
+    max-width: 1320px;
+  }
+
+  .inschat-responsive-copy {
+    max-width: 580px;
+  }
+
+  .inschat-mobile-visual {
+    display: grid;
+    min-height: 520px;
+    padding: 32px;
+    place-items: center;
+    border: 1px solid rgba(40, 119, 245, 0.16);
+    border-radius: 34px;
+    background:
+      radial-gradient(circle at 50% 42%, rgba(79, 141, 247, 0.26), transparent 42%),
+      rgba(255, 255, 255, 0.56);
+    box-shadow: 0 28px 70px rgba(40, 66, 105, 0.1);
+  }
+
+  .inschat-phone-presentation {
+    width: min(100%, 340px);
+  }
+
+  .inschat-phone-frame {
+    box-shadow: 0 28px 70px rgba(29, 45, 73, 0.24);
+  }
+
+  .inschat-build-section .inschat-stack-grid {
+    border-color: rgba(246, 247, 249, 0.16);
+  }
+
+  .inschat-build-section .inschat-stack-grid article {
+    border-color: rgba(246, 247, 249, 0.16);
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  .inschat-build-section .inschat-stack-grid span,
+  .inschat-build-section .inschat-release-note > span {
+    color: #86aefc;
+  }
+
+  .inschat-build-section .inschat-stack-grid strong {
+    color: #f6f7f9;
+  }
+
+  .inschat-build-section .inschat-release-note {
+    border-color: rgba(246, 247, 249, 0.16);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .inschat-build-section .inschat-release-note p {
+    color: #b8c0cd;
+  }
+
+  @media (max-width: 900px) {
+    .inschat-mobile-visual {
+      width: min(100%, 620px);
+      justify-self: center;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .inschat-mobile-visual {
+      min-height: 430px;
+      padding: 20px;
+      border-radius: 26px;
+    }
+  }
+
+  .inschat-hero {
+    display: grid;
+    min-height: min(760px, 82vh);
+    padding: clamp(120px, 15vw, 220px) clamp(25px, 8vw, 150px);
+    place-items: center;
+    text-align: center;
+  }
+
+  .inschat-hero-copy {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .inschat-hero h1 {
+    max-width: 860px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: clamp(54px, 7vw, 104px);
+    line-height: 0.98;
+  }
+
+  .inschat-hero .inschat-hero-copy > p {
+    max-width: 520px;
+    margin: 30px auto 0;
+  }
+
+  .inschat-hero .inschat-button-row {
+    justify-content: center;
+  }
+
+  .inschat-intro-section {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: clamp(100px, 12vw, 170px) clamp(25px, 8vw, 150px);
+    background:
+      radial-gradient(circle at 50% 0%, rgba(79, 141, 247, 0.14), transparent 34%),
+      #171a21;
+    color: #f6f7f9;
+    scroll-margin-top: 32px;
+  }
+
+  .inschat-intro-inner {
+    display: grid;
+    gap: clamp(50px, 7vw, 90px);
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  .inschat-intro-copy {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .inschat-intro-copy .inschat-kicker {
+    color: #86aefc;
+  }
+
+  .inschat-intro-copy h2 {
+    max-width: 780px;
+    color: #f6f7f9;
+  }
+
+  .inschat-intro-copy p {
+    max-width: 620px;
+    margin: 28px auto 0;
+    color: #b8c0cd;
+    font-size: var(--fz-lg);
+    line-height: 1.6;
+  }
+
+  .inschat-intro-visual {
+    min-width: 0;
+  }
+
+  .inschat-intro-visual .inschat-home-presentation {
+    width: 100%;
+    margin: 0;
+  }
+
+  .inschat-intro-visual .inschat-presentation-header {
+    color: #86aefc;
+  }
+
+  .inschat-intro-visual .inschat-presentation-stage {
+    border-color: rgba(246, 247, 249, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .inschat-intro-visual .inschat-real-screenshot {
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
+  }
+
+  .inschat-intro-visual .inschat-presentation figcaption strong {
+    color: #f6f7f9;
+  }
+
+  .inschat-intro-visual .inschat-presentation figcaption span {
+    color: #9fa8b7;
+  }
+
+  @media (max-width: 560px) {
+    .inschat-hero {
+      min-height: 620px;
+      padding-top: 120px;
+      padding-bottom: 100px;
+    }
+
+    .inschat-hero h1 {
+      font-size: clamp(50px, 14vw, 70px);
+    }
+  }
+
+  .inschat-hero {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(79, 141, 247, 0.13), transparent 34%),
+      #fcfbf8;
+    color: var(--inschat-ink);
+  }
+
+  .inschat-hero .inschat-eyebrow,
+  .inschat-intro-copy .inschat-kicker,
+  .inschat-workflow-section .inschat-kicker,
+  .inschat-build-section .inschat-kicker,
+  .inschat-cta-content .inschat-kicker {
+    color: var(--inschat-deep-blue);
+  }
+
+  .inschat-hero h1,
+  .inschat-intro-copy h2,
+  .inschat-workflow-section h2,
+  .inschat-build-section h2,
+  .inschat-cta-content h2 {
+    color: var(--inschat-ink);
+  }
+
+  .inschat-hero .inschat-hero-copy > p,
+  .inschat-intro-copy p,
+  .inschat-workflow-section .inschat-section-copy > p,
+  .inschat-build-section .inschat-build-copy > p,
+  .inschat-cta-content p {
+    color: var(--inschat-muted);
+  }
+
+  .inschat-hero .inschat-button-row .primary,
+  .inschat-cta-button {
+    border-color: var(--inschat-deep-blue);
+    background: var(--inschat-deep-blue);
+    color: #ffffff;
+  }
+
+  .inschat-hero .inschat-button-row .primary:hover,
+  .inschat-hero .inschat-button-row .primary:focus-visible,
+  .inschat-cta-button:hover,
+  .inschat-cta-button:focus-visible {
+    border-color: var(--inschat-ink);
+    background: var(--inschat-ink);
+    color: #ffffff;
+  }
+
+  .inschat-intro-section {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(79, 141, 247, 0.13), transparent 34%),
+      #f1f5fb;
+    color: var(--inschat-ink);
+  }
+
+  .inschat-intro-copy h2 {
+    color: var(--inschat-ink);
+  }
+
+  .inschat-intro-copy p {
+    color: var(--inschat-muted);
+  }
+
+  .inschat-intro-visual .inschat-home-presentation {
+    width: min(100%, 960px);
+    margin: 0 auto;
+  }
+
+  .inschat-intro-visual .inschat-presentation-header,
+  .inschat-workflow-section .inschat-presentation-header {
+    color: var(--inschat-deep-blue);
+  }
+
+  .inschat-intro-visual .inschat-presentation-stage,
+  .inschat-workflow-section .inschat-presentation-stage {
+    border-color: rgba(40, 119, 245, 0.14);
+    background: #e4edf9;
+  }
+
+  .inschat-intro-visual .inschat-real-screenshot,
+  .inschat-workflow-section .inschat-real-screenshot {
+    border-color: rgba(29, 29, 31, 0.14);
+    box-shadow: 0 24px 55px rgba(40, 66, 105, 0.16);
+  }
+
+  .inschat-intro-visual .inschat-presentation figcaption strong,
+  .inschat-workflow-section .inschat-presentation figcaption strong,
+  .inschat-workflow-section .inschat-feature-list strong {
+    color: var(--inschat-ink);
+  }
+
+  .inschat-intro-visual .inschat-presentation figcaption span,
+  .inschat-workflow-section .inschat-presentation figcaption span,
+  .inschat-workflow-section .inschat-feature-list span {
+    color: var(--inschat-muted);
+  }
+
+  .inschat-workflow-section {
+    background: #fffdf9;
+    color: var(--inschat-ink);
+  }
+
+  .inschat-workflow-section .inschat-feature-list article {
+    border-color: var(--inschat-line);
+  }
+
+  .inschat-build-section {
+    background: #f3f5f7;
+    color: var(--inschat-ink);
+  }
+
+  .inschat-build-section .inschat-stack-grid {
+    border-color: var(--inschat-line);
+  }
+
+  .inschat-build-section .inschat-stack-grid article {
+    border-color: var(--inschat-line);
+    background: #ffffff;
+  }
+
+  .inschat-build-section .inschat-stack-grid span,
+  .inschat-build-section .inschat-release-note > span {
+    color: var(--inschat-deep-blue);
+  }
+
+  .inschat-build-section .inschat-stack-grid strong {
+    color: var(--inschat-ink);
+  }
+
+  .inschat-build-section .inschat-release-note {
+    border-color: var(--inschat-line);
+    background: #ffffff;
+  }
+
+  .inschat-build-section .inschat-release-note p {
+    color: var(--inschat-muted);
+  }
+
+  .inschat-cta-section {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(79, 141, 247, 0.18), transparent 34%),
+      #eaf2ff;
+    color: var(--inschat-ink);
+  }
+
+  .inschat-cta-content h2 {
+    color: var(--inschat-ink);
+  }
+
+  .inschat-cta-content p {
+    color: var(--inschat-muted);
+  }
+
+  @media (max-width: 560px) {
+    .inschat-intro-visual .inschat-presentation-stage,
+    .inschat-workflow-section .inschat-presentation-stage {
+      padding: 12px 10px;
+    }
+  }
+
+  .inschat-hero h1 {
+    max-width: 760px;
+    font-size: clamp(42px, 4.2vw, 64px);
+    line-height: 1.1;
+    letter-spacing: -0.055em;
+  }
+
+  .inschat-hero .inschat-hero-copy > p {
+    margin-top: 24px;
+  }
+
+  .inschat-intro-copy h2,
+  .inschat-workflow-section h2,
+  .inschat-responsive-section h2,
+  .inschat-build-section h2,
+  .inschat-cta-content h2 {
+    font-size: clamp(30px, 3vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.05em;
+  }
+
+  @media (max-width: 560px) {
+    .inschat-hero h1 {
+      font-size: clamp(40px, 11vw, 54px);
+    }
+
+    .inschat-intro-copy h2,
+    .inschat-workflow-section h2,
+    .inschat-responsive-section h2,
+    .inschat-build-section h2,
+    .inschat-cta-content h2 {
+      font-size: clamp(30px, 9vw, 38px);
+    }
+  }
+
+  .inschat-topbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px clamp(20px, 4vw, 64px);
+    background: transparent;
+    color: var(--inschat-ink);
+    transition:
+      background 220ms ease,
+      -webkit-backdrop-filter 220ms ease,
+      backdrop-filter 220ms ease;
+  }
+
+  .inschat-topbar.is-scrolled {
+    background: rgba(252, 251, 248, 0.9);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
+
+  .inschat-topbar-brand {
+    color: var(--inschat-ink);
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.05em;
+  }
+
+  .inschat-topbar-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 34px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(29, 29, 31, 0.07);
+    color: var(--inschat-ink);
+    font-family: var(--font-mono);
+    font-size: 11px;
+  }
+
+  .inschat-topbar-action:hover,
+  .inschat-topbar-action:focus-visible {
+    background: rgba(29, 29, 31, 0.12);
+    color: var(--inschat-ink);
+  }
+
+  .inschat-hero-icon {
+    display: block;
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 24px;
+    border-radius: 14px;
+    box-shadow: 0 12px 24px rgba(40, 66, 105, 0.14);
+  }
+
+  @media (max-width: 560px) {
+    .inschat-topbar {
+      padding: 14px 16px;
+    }
+
+    .inschat-topbar-action {
+      min-height: 32px;
+      padding: 0 11px;
+      font-size: 10px;
+    }
+
+    .inschat-hero-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 20px;
+      border-radius: 11px;
+    }
+  }
+
+  .inschat-responsive-visual {
+    display: grid;
+    width: 100%;
+    min-height: 520px;
+    place-items: center;
+    background:
+      radial-gradient(circle at 50% 48%, rgba(79, 141, 247, 0.18), transparent 48%),
+      transparent;
+  }
+
+  .inschat-device-composition {
+    position: relative;
+    width: min(100%, 780px);
+    min-height: 500px;
+  }
+
+  .inschat-desktop-presentation {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    width: min(100%, 680px);
+    margin: 0;
+  }
+
+  .inschat-desktop-frame {
+    overflow: hidden;
+    padding: 10px;
+    border: 1px solid rgba(29, 29, 31, 0.14);
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 24px 55px rgba(40, 66, 105, 0.16);
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 11px;
+    }
+  }
+
+  .inschat-desktop-presentation figcaption,
+  .inschat-phone-presentation figcaption {
+    margin-top: 10px;
+    color: var(--inschat-muted);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .inschat-phone-presentation {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    width: min(100%, 250px);
+    margin: 0;
+  }
+
+  .inschat-phone-frame {
+    box-shadow: 0 28px 70px rgba(29, 45, 73, 0.24);
+  }
+
+  .inschat-phone-presentation figcaption {
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .inschat-responsive-visual {
+      min-height: 490px;
+    }
+
+    .inschat-device-composition {
+      min-height: 470px;
+    }
+
+    .inschat-desktop-presentation {
+      width: 94%;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .inschat-responsive-visual {
+      min-height: 390px;
+    }
+
+    .inschat-device-composition {
+      min-height: 370px;
+    }
+
+    .inschat-desktop-presentation {
+      top: 20px;
+      width: 94%;
+    }
+
+    .inschat-phone-presentation {
+      width: 180px;
+    }
+  }
+
+  .inschat-general-section {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: clamp(100px, 12vw, 170px) clamp(25px, 8vw, 150px);
+    background:
+      radial-gradient(circle at 75% 45%, rgba(79, 141, 247, 0.12), transparent 36%),
+      #fcfbf8;
+    color: var(--inschat-ink);
+  }
+
+  .inschat-general-inner {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.8fr) minmax(420px, 1.2fr);
+    gap: clamp(50px, 8vw, 120px);
+    max-width: 1240px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .inschat-general-copy {
+    max-width: 520px;
+  }
+
+  .inschat-general-copy .inschat-kicker {
+    color: var(--inschat-deep-blue);
+  }
+
+  .inschat-general-copy h2 {
+    max-width: 520px;
+    font-size: clamp(30px, 3vw, 40px);
+    line-height: 1.15;
+    color: var(--inschat-ink);
+  }
+
+  .inschat-general-copy > p {
+    max-width: 500px;
+    margin: 28px 0 0;
+    color: var(--inschat-muted);
+    font-size: var(--fz-lg);
+    line-height: 1.6;
+  }
+
+  .inschat-general-facts {
+    display: grid;
+    gap: 10px;
+    max-width: 500px;
+    margin-top: 30px;
+    color: var(--inschat-muted);
+    font-family: var(--font-mono);
+    font-size: var(--fz-xs);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    span {
+      padding-top: 10px;
+      border-top: 1px solid var(--inschat-line);
+    }
+  }
+
+  .inschat-general-visual {
+    min-width: 0;
+  }
+
+  .inschat-general-presentation {
+    width: 100%;
+    margin: 0;
+  }
+
+  .inschat-general-presentation-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    color: var(--inschat-deep-blue);
+    font-family: var(--font-mono);
+    font-size: var(--fz-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .inschat-general-screenshot {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(29, 29, 31, 0.18);
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 24px 55px rgba(40, 66, 105, 0.16);
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .inschat-general-presentation figcaption {
+    display: grid;
+    gap: 6px;
+    margin-top: 16px;
+
+    strong {
+      color: var(--inschat-ink);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    span {
+      color: var(--inschat-muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .inschat-general-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .inschat-general-copy {
+      max-width: 680px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .inschat-general-section {
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+
+    .inschat-general-presentation-header {
+      font-size: 10px;
+    }
+
+    .inschat-general-screenshot {
+      border-radius: 14px;
+    }
+  }
 `;
